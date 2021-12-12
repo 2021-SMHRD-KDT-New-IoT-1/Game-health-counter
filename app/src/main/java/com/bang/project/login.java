@@ -57,7 +57,7 @@ public class login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(getApplicationContext(), r+"님 환영합니다!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(login.this,join.class);
+                    Intent intent = new Intent(login.this, character.class);
                     intent.putExtra("nickname",r);
                     startActivity(intent);
                 }
