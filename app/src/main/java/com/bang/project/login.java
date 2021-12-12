@@ -18,7 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +34,8 @@ public class login extends AppCompatActivity {
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_login;
+
+    CharVO char_vo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +57,20 @@ public class login extends AppCompatActivity {
 
         stringRequest_login = new StringRequest(Request.Method.POST, url_login, new Response.Listener<String>() {
             @Override
-            public void onResponse(String r) {
-                if(r.equals("")){
+            public void onResponse(String response) {
+                if(response.equals("")){
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), r+"님 환영합니다!", Toast.LENGTH_LONG).show();
+                    // response를 자바객체로 파싱 메서드 호출
+//                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                    processResponse(response);
+
+                    Toast.makeText(getApplicationContext(), char_vo.getC_name()+"님 환영합니다!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(login.this, character.class);
-                    intent.putExtra("nickname",r);
+
+//                    intent.putExtra("test",response);
+                    intent.putExtra("char_name",char_vo.getC_name());
+                    intent.putExtra("char_lv",char_vo.getC_level());
                     startActivity(intent);
                 }
             }
@@ -86,6 +98,15 @@ public class login extends AppCompatActivity {
                 requestQueue.add(stringRequest_login);
             }
         });
+    }
+
+    private void processResponse(String response) {
+        // gson을 이용해 자바 객체로 파싱
+        Gson gson = new Gson();
+//        Gson gson = new GsonBuilder().setDateFormat("MM dd, yyyy HH:mm:ss").create();
+
+        char_vo = gson.fromJson(response, CharVO.class);
+
     }
 }
 

@@ -26,8 +26,13 @@ public class character extends AppCompatActivity {
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
 
-        String nick = getIntent().getExtras().getString("nickname");
+        // intent값 받아와서 닉네임 set
+        String nick = getIntent().getExtras().getString("char_name");
         tv_nick.setText(nick);
+
+        // intent값 받아와서 레벨 set
+        String lv = getIntent().getExtras().getString("char_lv");
+        tv_level.setText(lv);
 
 
 
