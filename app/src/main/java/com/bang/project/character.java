@@ -31,8 +31,8 @@ public class character extends AppCompatActivity {
         tv_nick.setText(nick);
 
         // intent값 받아와서 레벨 set
-        String lv = getIntent().getExtras().getString("char_lv");
-        tv_level.setText(lv);
+        int lv = getIntent().getExtras().getInt("char_lv");
+        tv_level.setText("Lv "+lv);
 
 
 
