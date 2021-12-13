@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView image;
-    private static  int SPLASH_SCREEN_TIMEOUT = 2000;
+    private static  int SPLASH_SCREEN_TIMEOUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
