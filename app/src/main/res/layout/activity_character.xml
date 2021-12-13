@@ -8,7 +8,7 @@
     tools:context=".login">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_home"
         android:layout_width="70dp"
         android:layout_height="52dp"
         android:backgroundTint="#FFFFFFF0  "
@@ -23,9 +23,9 @@
         android:layout_width="25dp"
         android:layout_height="22dp"
         android:layout_marginStart="192dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_home"
+        app:layout_constraintStart_toEndOf="@+id/btn_home"
+        app:layout_constraintTop_toTopOf="@+id/btn_home"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/a" />
 

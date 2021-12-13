@@ -1,15 +1,28 @@
 package com.bang.project;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.Map;
 
 public class character extends AppCompatActivity {
 
@@ -18,6 +31,11 @@ public class character extends AppCompatActivity {
 
     TextView tv_nick;
     TextView tv_level;
+
+    RequestQueue requestQueue; // 전송통로
+    StringRequest stringRequest_CharInfo;
+
+    ImageButton btn_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +46,59 @@ public class character extends AppCompatActivity {
         frameLayout = findViewById(R.id.layout);
         bnView = findViewById(R.id.bnView);
 
+        // 이미지 버튼(홈으로 이동)
+        btn_home = findViewById(R.id.btn_home);
+
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
+
+        // 메인화면 프레그먼트 셋팅(캐릭터로)
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.layout, new Fragment5()).commit();
+
+
+
+
+        // *** 서버 request 및 response 부분 시작
+        // 1. 통로생성
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        // 2. 전송할 URL
+        String url_CharInfo = "http://211.48.213.139:8081/final_project2/CharInfo";
+
+        stringRequest_CharInfo = new StringRequest(Request.Method.POST, url_CharInfo, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return super.getParams();
+            }
+        };
+        requestQueue.add(stringRequest_CharInfo);
+        // 끝 ***
+
+        // 홈 버튼 리스너
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.layout, new Fragment5()).commit();
+            }
+        });
+
+
+
+
+
+
 
         // 아이템 선택시 반응하는 리스너
         bnView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -62,14 +131,14 @@ public class character extends AppCompatActivity {
 
 
         // intent값 받아와서 닉네임 set
-        String nick = getIntent().getExtras().getString("char_name");
-        tv_nick.setText(nick);
+//        String nick = getIntent().getExtras().getString("char_name");
+//        tv_nick.setText(nick);
 
         // intent값 받아와서 레벨 set
-        int lv = getIntent().getExtras().getInt("char_lv");
-        tv_level.setText("Lv "+lv);
+//        int lv = getIntent().getExtras().getInt("char_lv");
+//        tv_level.setText("Lv "+lv);
 
 
 
-    }
+    } // onCreate()
 }

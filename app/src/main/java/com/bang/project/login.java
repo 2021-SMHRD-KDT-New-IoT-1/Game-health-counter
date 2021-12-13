@@ -35,7 +35,7 @@ public class login extends AppCompatActivity {
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_login;
 
-    CharVO char_vo;
+//    CharVO char_vo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +60,20 @@ public class login extends AppCompatActivity {
             public void onResponse(String response) {
                 if(response.equals("")){
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show();
+                    // 화면 넘기려고 임시로 지정해놓은 코드 아래 2줄
+                    Intent intent = new Intent(login.this, character.class);
+                    startActivity(intent);
                 }else{
                     // response를 자바객체로 파싱 메서드 호출
 //                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                    processResponse(response);
+//                    processResponse(response);
 
-                    Toast.makeText(getApplicationContext(), char_vo.getC_name()+"님 환영합니다!", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), char_vo.getC_name()+"님 환영합니다!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(login.this, character.class);
 
 //                    intent.putExtra("test",response);
-                    intent.putExtra("char_name",char_vo.getC_name());
-                    intent.putExtra("char_lv",char_vo.getC_level());
+//                    intent.putExtra("char_name",char_vo.getC_name());
+//                    intent.putExtra("char_lv",char_vo.getC_level());
                     startActivity(intent);
                 }
             }
@@ -85,8 +88,8 @@ public class login extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 HashMap<String, String> params = new HashMap<>();
-                params.put("m_id", edt_id.getText().toString());
-                params.put("m_pwd", edt_pwd.getText().toString());
+//                params.put("m_id", edt_id.getText().toString());
+//                params.put("m_pwd", edt_pwd.getText().toString());
 
                 return params;
             }
@@ -100,13 +103,12 @@ public class login extends AppCompatActivity {
         });
     }
 
-    private void processResponse(String response) {
-        // gson을 이용해 자바 객체로 파싱
-        Gson gson = new Gson();
-//        Gson gson = new GsonBuilder().setDateFormat("MM dd, yyyy HH:mm:ss").create();
-
-        char_vo = gson.fromJson(response, CharVO.class);
-
-    }
+//    private void processResponse(String response) {
+//        // gson을 이용해 자바 객체로 파싱
+//        Gson gson = new Gson();
+////        Gson gson = new GsonBuilder().setDateFormat("MM dd, yyyy HH:mm:ss").create();
+//        char_vo = gson.fromJson(response, CharVO.class);
+//
+//    }
 }
 
