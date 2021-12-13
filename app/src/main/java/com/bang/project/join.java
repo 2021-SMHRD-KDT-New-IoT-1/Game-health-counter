@@ -3,6 +3,7 @@ package com.bang.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.SpinnerAdapter;
 
 public class join extends AppCompatActivity {
 
@@ -10,7 +11,7 @@ public class join extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
-        //rdlaasdfadsfasdfasdfasdf
+
 
     }
 }
