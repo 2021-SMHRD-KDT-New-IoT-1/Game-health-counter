@@ -5,8 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".Fragment1" >
+    android:background="#FFFFFFF0 "
+    tools:context=".Fragment1">
 
 
     <CalendarView
@@ -38,28 +38,28 @@
         app:layout_constraintTop_toBottomOf="@+id/switch2">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
                 android:layout_margin="6dp"
                 android:src="@drawable/a" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="200dp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="스쿼트"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="175dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="999개" />
@@ -71,8 +71,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
                 android:layout_margin="6dp"
                 android:src="@drawable/b" />
 
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="푸쉬업"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -99,8 +99,8 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
                 android:layout_margin="6dp"
                 android:src="@drawable/c" />
 
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="풀업"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -126,11 +126,11 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:id="@+id/imageView5"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
                 android:layout_margin="6dp"
-                android:src="@drawable/calories" />
+                android:src="@drawable/kcal" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="총 소모 칼로리"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
