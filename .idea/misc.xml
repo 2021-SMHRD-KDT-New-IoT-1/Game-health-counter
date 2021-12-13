@@ -3,16 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_character.xml" value="0.264" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_join.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_login.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_1.xml" value="0.196875" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_2.xml" value="0.196875" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_3.xml" value="0.196875" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_4.xml" value="0.196875" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_blank.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/menu/menu.xml" value="0.196875" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/drawable/ic_baseline_edit_calendar_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_character.xml" value="0.2046875" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_join.xml" value="0.2046875" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_1.xml" value="0.35443037974683544" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/Desktop/AndroidStudy/Game-health-counter/app/src/main/res/layout/fragment_blank.xml" value="0.2046875" />
         <entry key="..\:/Users/smhrd/Desktop/android study/project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/smhrd/Desktop/android study/project/app/src/main/res/drawable/color.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/Desktop/android study/project/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.11574074074074074" />
