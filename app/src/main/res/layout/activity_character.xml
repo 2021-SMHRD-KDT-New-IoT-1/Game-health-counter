@@ -22,11 +22,11 @@
         android:id="@+id/imageView6"
         android:layout_width="25dp"
         android:layout_height="22dp"
-        android:layout_marginStart="192dp"
+        android:layout_marginStart="148dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_home"
         app:layout_constraintStart_toEndOf="@+id/btn_home"
         app:layout_constraintTop_toTopOf="@+id/btn_home"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.033"
         app:srcCompat="@drawable/a" />
 
     <TextView
@@ -110,6 +110,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" >
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/set"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_nick"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/ic_baseline_settings_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
