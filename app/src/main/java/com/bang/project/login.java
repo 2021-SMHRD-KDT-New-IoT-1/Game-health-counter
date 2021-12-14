@@ -60,15 +60,14 @@ public class login extends AppCompatActivity {
             public void onResponse(String response) {
                 if(response.equals("")){
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show();
-                    // 화면 넘기려고 임시로 지정해놓은 코드 아래 2줄
-                    Intent intent = new Intent(login.this, character.class);
-                    startActivity(intent);
                 }else{
                     // response를 자바객체로 파싱 메서드 호출
+
+
 //                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
 //                    processResponse(response);
 
-//                    Toast.makeText(getApplicationContext(), char_vo.getC_name()+"님 환영합니다!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), response+"님 환영합니다!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(login.this, character.class);
 
 //                    intent.putExtra("test",response);
@@ -85,11 +84,12 @@ public class login extends AppCompatActivity {
         }){
             @Nullable
             @Override
+            // 안드에서 패러미터를 이용하여 jsp 서블릿(Login.java)으로  요청 하는 부분
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 HashMap<String, String> params = new HashMap<>();
-//                params.put("m_id", edt_id.getText().toString());
-//                params.put("m_pwd", edt_pwd.getText().toString());
+                params.put("m_id", edt_id.getText().toString());
+                params.put("m_pwd", edt_pwd.getText().toString());
 
                 return params;
             }
@@ -101,7 +101,18 @@ public class login extends AppCompatActivity {
                 requestQueue.add(stringRequest_login);
             }
         });
-    }
+
+        btn_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this, join.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+    } // onCreate()
 
 //    private void processResponse(String response) {
 //        // gson을 이용해 자바 객체로 파싱

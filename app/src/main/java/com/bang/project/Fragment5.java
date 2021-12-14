@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+// 캐릭터 탭(메인화면)
 public class Fragment5 extends Fragment {
 
     @Override

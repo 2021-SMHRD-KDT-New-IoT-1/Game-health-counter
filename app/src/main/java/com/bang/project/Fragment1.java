@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+// 기록 탭
 public class Fragment1 extends Fragment {
 
     @Override

@@ -56,9 +56,6 @@ public class character extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.layout, new Fragment5()).commit();
 
-
-
-
         // *** 서버 request 및 response 부분 시작
         // 1. 통로생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -93,12 +90,6 @@ public class character extends AppCompatActivity {
                         .replace(R.id.layout, new Fragment5()).commit();
             }
         });
-
-
-
-
-
-
 
         // 아이템 선택시 반응하는 리스너
         bnView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
