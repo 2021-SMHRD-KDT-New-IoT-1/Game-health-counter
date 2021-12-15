@@ -58,11 +58,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_squart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="999개" />
+                android:text="0회" />
         </TableRow>
 
         <TableRow
@@ -86,11 +86,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tv_push"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="999회" />
+                android:text="0회" />
         </TableRow>
 
         <TableRow
@@ -114,11 +114,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_pull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="999회" />
+                android:text="0회" />
         </TableRow>
 
         <TableRow
@@ -146,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="1000cal" />
+                android:text="0cal" />
         </TableRow>
     </TableLayout>
 
