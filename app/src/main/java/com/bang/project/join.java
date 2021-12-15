@@ -78,7 +78,7 @@ public class join extends AppCompatActivity {
                     startActivity(intent);
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "빈칸을 모두 입력해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -111,8 +111,16 @@ public class join extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(sign_id.getText().toString().equals("") || sign_pwd.getText().toString().equals("") ||
+                        sign_name.getText().toString().equals("") || sign_nickname.getText().toString().equals("") ||
+                        sign_email.getText().toString().equals("") ||
+                        sign_phone.getText().toString().equals("") ){
+                    Toast.makeText(getApplicationContext(),"빈칸을 입력해주세요",Toast.LENGTH_SHORT).show();
+                }else{
                 requestQueue.add(stringRequest_join);
+                }
             }
+
         });
     
         // 스피너
