@@ -10,8 +10,8 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="329dp"
+        android:layout_height="623dp"
         android:text="퀘스트!"
         android:textSize="96sp"
         app:layout_constraintBottom_toBottomOf="parent"
