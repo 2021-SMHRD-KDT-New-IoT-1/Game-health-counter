@@ -21,7 +21,7 @@
         android:id="@+id/mode_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="모드선택"
+        android:text="일반 모드"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

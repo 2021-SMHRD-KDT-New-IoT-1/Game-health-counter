@@ -65,9 +65,9 @@ public class Fragment1 extends Fragment {
 
                 String[] result = response.split(",");
 
-                tv_squart.setText(result[0]+"회");
-                tv_push.setText(result[1]+"회");
-                tv_pull.setText(result[2]+"회");
+                tv_push.setText(result[0]+"회");
+                tv_pull.setText(result[1]+"회");
+                tv_squart.setText(result[2]+"회");
 
 
             }
@@ -144,18 +144,19 @@ public class Fragment1 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
 //                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
-                    server(date_result, url_athle_time);
 
-                    // 타임어택 모드 캘린더
+                    mode_switch.setText("타임 어택 모드");
+                    server(date_result, url_athle_time);
+                    // 타임어택 모드 캘린더(캘린더 눌렀을때만 작동함)
                     calendar(url_athle_time);
 
                 } else {
 //                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
+
+                    mode_switch.setText("일반 모드");
                     server(date_result, url_athle);
-
-                    // 일반운동 모드 캘린더
+                    // 일반운동 모드 캘린더(캘린더 눌렀을때만 작동함)
                     calendar(url_athle);
-
                 }
             }
         });
