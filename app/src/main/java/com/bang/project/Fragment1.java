@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,17 +47,16 @@ public class Fragment1 extends Fragment {
     TextView tv_pull;
 
     String url_athle;
+    String url_athle_time;
+
     String req_user;
 
+    Switch mode_switch;
 
     // 통신 메서드
-    public void server(String date) {
-        // 1. 통로생성
-        requestQueue = Volley.newRequestQueue(getActivity());
-        // 2. 전송할 URL
-        url_athle = "http://211.48.213.139:8081/final_project2/Athle";
+    public void server(String date, String url) {
 
-        stringRequest_Athle = new StringRequest(Request.Method.POST, url_athle, new Response.Listener<String>() {
+        stringRequest_Athle = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -91,12 +92,32 @@ public class Fragment1 extends Fragment {
         requestQueue.add(stringRequest_Athle);
     };
 
+    // 캘린더 메서드
+    public void calendar(String url) {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
+                date_result = ""+year+(month+1)+dayOfMonth;
+                // 날짜 잘찍히는지 확인용 ex) 20211215 이런식으로 출력됨
+////                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
+                server(date_result, url);
+            }
+        });
+    }
+
+
+    // onCreateView()
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_1, container, false);
 
+        // 1. 통로생성
+        requestQueue = Volley.newRequestQueue(getActivity());
+        // 2. 전송할 URL
+        url_athle = "http://211.48.213.139:8081/final_project2/Athle"; // 운동 서블릿
+        url_athle_time = "http://211.48.213.139:8081/final_project2/Athle_Time"; // 타임어택 서블릿
 
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         date = format.format(Calendar.getInstance().getTime());
@@ -105,24 +126,37 @@ public class Fragment1 extends Fragment {
         tv_push = v.findViewById(R.id.tv_push);
         tv_pull = v.findViewById(R.id.tv_pull);
 
+        mode_switch = v.findViewById(R.id.mode_switch);
+//        mode_switch.setOnCheckedChangeListener(new SwitchListener());
+
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
         req_user = spf.getString("user", "unknown");
 
-        server(date);
+        // 무조건 오늘 날짜 들어가야함(처음 페이지 들어올때 기본 셋팅)
+        server(date, url_athle);
+        date_result = date;
 
         calendarView = v.findViewById(R.id.calendarView);
-        // 캘린더뷰 리스너
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+        // 스위치 리스너 setOnCheckedChangeListener이용 -> CompoundButton.OnCheckedChangeListener생성
+        mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+//                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
+                    server(date_result, url_athle_time);
 
-                date_result = ""+year+(month+1)+dayOfMonth;
-                // 날짜 잘찍히는지 확인용 ex) 20211215 이런식으로 출력됨
-//                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
+                    // 타임어택 모드 캘린더
+                    calendar(url_athle_time);
 
-                server(date_result);
+                } else {
+//                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
+                    server(date_result, url_athle);
 
+                    // 일반운동 모드 캘린더
+                    calendar(url_athle);
 
+                }
             }
         });
 

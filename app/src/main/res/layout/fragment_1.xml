@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/mode_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="모드선택"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2">
+        app:layout_constraintTop_toBottomOf="@+id/mode_switch">
 
         <TableRow
             android:layout_width="400dp"
