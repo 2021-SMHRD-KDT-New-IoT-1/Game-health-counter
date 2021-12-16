@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".popup"
+            android:exported="false" />
+        <activity
             android:name=".raid"
             android:exported="false" />
         <activity
