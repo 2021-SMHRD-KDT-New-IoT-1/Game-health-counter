@@ -52,7 +52,7 @@ public class login extends AppCompatActivity {
         btn_join = findViewById(R.id.btn_join);
 
         // SharedPreferences 초기화
-        SharedPreferences spf = getSharedPreferences("loginSPF", Context.MODE_PRIVATE);
+        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
         // 1. 통로생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
