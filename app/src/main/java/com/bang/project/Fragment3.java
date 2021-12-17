@@ -1,5 +1,6 @@
 package com.bang.project;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,7 +46,7 @@ public class Fragment3 extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_3, container, false);
-
+        SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
         requestQueue = Volley.newRequestQueue(getContext());
         // 2. 전송할 URL
@@ -72,7 +73,7 @@ public class Fragment3 extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 HashMap<String, String> params = new HashMap<>();
-                params.put("m_id", "shj");
+                params.put("m_id", spf.getString("user", "unknown"));
                 return params;
             }
         };
