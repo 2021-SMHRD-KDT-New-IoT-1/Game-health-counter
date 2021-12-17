@@ -2,23 +2,20 @@ package com.bang.project;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -33,25 +30,37 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Fragment3 extends Fragment {
     ArrayList<RaidVO> al = new ArrayList<>();
-    RequestQueue requestQueue; // 전송통로
-    StringRequest stringRequest;
+    RequestQueue requestQueue_raid; // 전송통로
+    StringRequest stringRequest_raid;
+    RequestQueue requestQueue_info;
+    StringRequest stringRequest_info;
     RaidVO raidvo;
-    ArrayList<RaidVO> raidVO_al = new ArrayList<RaidVO>();
     private JSONArray jsonArray;
     ArrayList<RaidVO> raidAl = new ArrayList<>();
-    private Button btn_giveUp;
-    ConstraintLayout layout;
-    ConstraintLayout layout2;
-    ConstraintLayout layout3;
+
+    ConstraintLayout constaintLayout_pull;
+    ConstraintLayout constaintLayout_sqt;
+    ConstraintLayout constaintLayout_push;
     AlertDialog.Builder builder;
+    private Button btn_giveUp;
+
+    TextView tv_date;
+    TextView tv_allScore;
+    TextView tv_score;
+    ProgressBar bar_stat;
+
+    String myScore;
+    String allScore;
 
 
     @Override
@@ -67,15 +76,38 @@ public class Fragment3 extends Fragment {
 
 
 
-        v.findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+
+        v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 builder = new AlertDialog.Builder(getActivity());
-                layout = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                builder.setView(layout);
+                constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                builder.setView(constaintLayout_pull);
+                tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+
+
+                requestQueue_info.add(stringRequest_info);
+                Calendar cal = Calendar.getInstance();
+                DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                cal.setTime(raidAl.get(0).getReg_date());
+
+                String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                cal.add(Calendar.DATE, 3);
+                String endDate = df.format(cal.getTime()).toString();
+
+                Toast.makeText(getContext(),endDate,Toast.LENGTH_SHORT).show();
+
+                tv_date.setText("참여기간 : "+startDate+" - "+endDate);
+
+
                 AlertDialog temp = builder.create();
 
-                layout.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         temp.dismiss();
@@ -85,14 +117,14 @@ public class Fragment3 extends Fragment {
             }
         });
 
-        v.findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
+        v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 builder = new AlertDialog.Builder(getActivity());
-                layout2 = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
-                builder.setView(layout2);
+                constaintLayout_sqt = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
+                builder.setView(constaintLayout_sqt);
                 AlertDialog temp = builder.create();
-                layout2.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                constaintLayout_sqt.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         temp.dismiss();
@@ -103,14 +135,14 @@ public class Fragment3 extends Fragment {
 
         });
 
-        v.findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
+        v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 builder = new AlertDialog.Builder(getActivity());
-                layout3 = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
-                builder.setView(layout3);
+                constaintLayout_push = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
+                builder.setView(constaintLayout_push);
                 AlertDialog temp = builder.create();
-                layout3.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                constaintLayout_push.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         temp.dismiss();
@@ -120,19 +152,19 @@ public class Fragment3 extends Fragment {
             }
         });
 
-
-        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue_info = Volley.newRequestQueue(getContext());
         // 2. 전송할 URL
-        String url_login = "http://211.63.240.51:8087/final_project2/RaidInfo";
+        String url_info = "http://211.63.240.51:8087/final_project2/AppRaidInfo";
 
-        stringRequest = new StringRequest(Request.Method.POST, url_login, new Response.Listener<String>() {
+        stringRequest_info = new StringRequest(Request.Method.POST, url_info, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.v("asdf", response);
-                jsonRead(response);
-                Toast.makeText(getContext(), raidAl.get(0).getRaid_name(), Toast.LENGTH_SHORT).show();
-
+                String data[] = response.split("-");
+                myScore = data[0];
+                allScore = data[1];
+                tv_allScore.setText(allScore+" / "+raidAl.get(0).getRaid_cnt().toString());
+                tv_score.setText("내 기여 횟수 : "+myScore+"회");
             }
         }, new Response.ErrorListener() {
             @Override
@@ -147,25 +179,55 @@ public class Fragment3 extends Fragment {
 
                 HashMap<String, String> params = new HashMap<>();
                 params.put("m_id", spf.getString("user", "unknown"));
+                params.put("raid_seq", raidAl.get(0).getRaid_seq());
                 return params;
             }
         };
-        requestQueue.add(stringRequest);
-        return v;
-    }
 
-//    private void processResponse(String response) {
-//        // gson을 이용해 자바 객체로 파싱
-//        //Gson gson = new Gson();
-//        Gson gson = new GsonBuilder().setDateFormat("MM dd, yyyy HH:mm:ss").create();
-//        RaidVO raidvo = gson.fromJson(response, RaidVO.class);
-//        raidVO_al.add("asd");
-//    }
+
+
+
+
+
+        requestQueue_raid = Volley.newRequestQueue(getContext());
+        // 2. 전송할 URL
+        String url_raid = "http://211.63.240.51:8087/final_project2/RaidInfo";
+
+        stringRequest_raid = new StringRequest(Request.Method.POST, url_raid, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                //Log.v("asdf", response);
+                jsonRead(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.v("LoginError", error.toString());
+            }
+        }) {
+            @Nullable
+            @Override
+            // 안드에서 패러미터를 이용하여 이클립스 자바 서블릿(Login.java)으로 요청하는 부분
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("m_id", spf.getString("user", "unknown"));
+
+                return params;
+            }
+        };
+
+        requestQueue_raid.add(stringRequest_raid);
+
+        return v;
+
+    }
 
     private void jsonRead(String response) {
         try {
             jsonArray = new JSONArray(response);
-            Gson gson = new Gson();
+            //Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
             for (int i = 0; i < jsonArray.length(); i++) {
                 // raidAl.add(gson.fromJson(jsonArray.getJSONObject(i).toString() , RaidVO.class));
                 raidAl.add(gson.fromJson(jsonArray.get(i).toString(), RaidVO.class));
@@ -173,81 +235,8 @@ public class Fragment3 extends Fragment {
         } catch (JSONException jsonException) {
             jsonException.printStackTrace();
         }
-
     }
-//
-//    package com.bang.project;
-//
-//import android.app.AlertDialog;
-//import android.os.Bundle;
-//
-//import androidx.constraintlayout.widget.ConstraintLayout;
-//import androidx.fragment.app.Fragment;
-//
-//import android.text.Layout;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//    public class Fragment3 extends Fragment {
-//
-//
-//        @Override
-//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                                 Bundle savedInstanceState) {
-//
-//
-//            View v = inflater.inflate(R.layout.fragment_3, container, false);
-//
-//            ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-//            ConstraintLayout layout2 = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
-//            ConstraintLayout layout3 = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
-//
-////        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-////        builder.setView(layout);
-////        builder.create().show();
-//
-//            v.findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    builder.setView(layout);
-//                    builder.create().show();
-//
-//                }
-//            });
-//
-//            v.findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    builder.setView(layout2);
-//                    builder.create().show();
-//                }
-//            });
-//
-//            v.findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    builder.setView(layout3);
-//                    builder.create().show();
-//                }
-//            });
-//
-//
-//            return v;
-//        }
-//
-//    }
-//
+
 
 
 }
