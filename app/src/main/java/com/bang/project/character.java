@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -22,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class character extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class character extends AppCompatActivity {
 
     TextView tv_nick;
     TextView tv_level;
+//    ProgressBar bar_exp;
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
@@ -52,6 +57,9 @@ public class character extends AppCompatActivity {
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
 
+        // SharedPreferences
+        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
+
         // 메인화면 프레그먼트 셋팅(캐릭터로)
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.layout, new Fragment5()).commit();
@@ -66,6 +74,12 @@ public class character extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
+                String[] result = response.split(",");
+
+                tv_nick.setText(result[0]);
+                tv_level.setText(result[1]);
+//                bar_exp.setText(result[2]+"회");
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -76,11 +90,16 @@ public class character extends AppCompatActivity {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                return super.getParams();
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("m_id", spf.getString("user", "unknown"));
+
+                return params;
             }
         };
         requestQueue.add(stringRequest_CharInfo);
         // 끝 ***
+
 
         // 홈 버튼 리스너
         btn_home.setOnClickListener(new View.OnClickListener() {
@@ -121,13 +140,7 @@ public class character extends AppCompatActivity {
         });
 
 
-        // intent값 받아와서 닉네임 set
-//        String nick = getIntent().getExtras().getString("char_name");
-//        tv_nick.setText(nick);
 
-        // intent값 받아와서 레벨 set
-//        int lv = getIntent().getExtras().getInt("char_lv");
-//        tv_level.setText("Lv "+lv);
 
 
 

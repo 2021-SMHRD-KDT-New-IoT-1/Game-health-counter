@@ -7,58 +7,30 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment2#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class Fragment2 extends Fragment {
+    private ListView listview;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Fragment2() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment2.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment2 newInstance(String param1, String param2) {
-        Fragment2 fragment = new Fragment2();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private ChatVO vo;
+    private ArrayList<ChatVO> data = new ArrayList<>();
+    private int img[] = {R.id.checked};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false);
+        View v = inflater.inflate(R.layout.fragment_2, container, false);
+        listview = v.findViewById(R.id.listview);
+
+        data.add(new ChatVO("2021.12.17", "스쿼트를 10회 하세요", R.drawable.checked , "10EXP", "푸쉬업을 10회 하세요", R.drawable.checked, "10EXP", "풀업을 5회 하세요",R.drawable.checked,   "10EXP"));//넣고
+        data.add(new ChatVO("2021.12.17", "스쿼트를 10회 하세요", R.drawable.checked , "10EXP", "푸쉬업을 10회 하세요", R.drawable.checked, "10EXP", "풀업을 5회 하세요",R.drawable.checked,   "10EXP"));//넣고
+
+        ChatAdapter adapter =new ChatAdapter(getContext(), R.layout.chat, data);
+        listview.setAdapter(adapter);
+
+        return v;
     }
 }
