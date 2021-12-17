@@ -80,13 +80,6 @@ public class Fragment3 extends Fragment {
         return v;
     }
 
-//    private void processResponse(String response) {
-//        // gson을 이용해 자바 객체로 파싱
-//        //Gson gson = new Gson();
-//        Gson gson = new GsonBuilder().setDateFormat("MM dd, yyyy HH:mm:ss").create();
-//        RaidVO raidvo = gson.fromJson(response, RaidVO.class);
-//        raidVO_al.add("asd");
-//    }
 
     private void jsonRead(String response) {
         try {
