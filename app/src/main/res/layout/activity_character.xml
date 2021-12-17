@@ -46,7 +46,7 @@
         android:layout_width="44dp"
         android:layout_height="24dp"
         android:layout_marginTop="4dp"
-        android:text="LV 10"
+        android:text="Lv 10"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
