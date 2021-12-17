@@ -35,7 +35,7 @@ public class character extends AppCompatActivity {
 
     TextView tv_nick;
     TextView tv_level;
-//    ProgressBar bar_exp;
+    ProgressBar bar_exp;
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
@@ -46,6 +46,14 @@ public class character extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+
+        //경험치 바 test
+        bar_exp = findViewById(R.id.bar_exp);
+        bar_exp.setProgress(60); // 퍼센트(백분율)로 들어감
+
+
+
 
         // fragment 사용시 필요한 레이아웃, 버튼뷰
         frameLayout = findViewById(R.id.layout);
@@ -77,7 +85,7 @@ public class character extends AppCompatActivity {
                 String[] result = response.split(",");
 
                 tv_nick.setText(result[0]);
-                tv_level.setText(result[1]);
+                tv_level.setText("Lv "+result[1]);
 //                bar_exp.setText(result[2]+"회");
 
             }
