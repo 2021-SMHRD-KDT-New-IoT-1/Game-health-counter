@@ -14,12 +14,13 @@
         android:id="@+id/btn1"
         android:layout_width="313dp"
         android:layout_height="91dp"
+        android:layout_marginTop="100dp"
         android:background="#B4D8CC"
         android:text="스쿼트"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="131dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/text1"
@@ -30,16 +31,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.191" />
+            app:layout_constraintVertical_bias="0.185" />
 
         <TextView
             android:id="@+id/text2"
-            android:layout_width="75dp"
-            android:layout_height="43dp"
+            android:layout_width="86dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="32dp"
             android:text="스쿼트"
-            android:textSize="25sp"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="24dp" />
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -49,9 +53,101 @@
             android:src="@drawable/a"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.481" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="313dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="48dp"
+        android:background="#B4D8CC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn1">
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="66dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="44dp"
+            android:text="푸시업"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="63dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="16dp"
+            android:text="참여하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.228" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/b"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.481" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="313dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="52dp"
+        android:background="#B4D8CC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/text6"
+            android:layout_width="66dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="44dp"
+            android:text="풀업"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="63dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="16dp"
+            android:text="참여하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.228" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/c"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.592" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
