@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn1"
+            android:id="@+id/constaintLayout_pull"
             android:layout_width="match_parent"
             android:layout_height="126dp"
             android:layout_marginTop="80dp"
@@ -57,7 +57,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn2"
+            android:id="@+id/constaintLayout_sqt"
             android:layout_width="match_parent"
             android:layout_height="126dp"
             android:layout_marginTop="15dp"
@@ -101,7 +101,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn3"
+            android:id="@+id/constaintLayout_push"
             android:layout_width="match_parent"
             android:layout_height="126dp"
             android:layout_marginTop="15dp"
