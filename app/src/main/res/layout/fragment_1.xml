@@ -21,6 +21,7 @@
         android:id="@+id/mode_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="일반 모드"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,37 +34,10 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mode_switch">
-
-        <TableRow
-            android:layout_width="400dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/a" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="52dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="스쿼트"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_squart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="0회" />
-        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -71,8 +45,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_margin="6dp"
                 android:src="@drawable/b" />
 
@@ -87,6 +61,34 @@
 
             <TextView
                 android:id="@+id/tv_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0회" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="6dp"
+                android:src="@drawable/a" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="스쿼트"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_squart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -121,33 +123,6 @@
                 android:text="0회" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/kcal" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="총 소모 칼로리"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="0cal" />
-        </TableRow>
     </TableLayout>
 
 
