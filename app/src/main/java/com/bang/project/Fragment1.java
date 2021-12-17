@@ -100,7 +100,7 @@ public class Fragment1 extends Fragment {
 
                 date_result = ""+year+(month+1)+dayOfMonth;
                 // 날짜 잘찍히는지 확인용 ex) 20211215 이런식으로 출력됨
-                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
                 server(date_result, url);
             }
         });

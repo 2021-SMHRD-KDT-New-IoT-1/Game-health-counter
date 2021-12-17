@@ -12,22 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".practice"
-            android:exported="false" />
-        <activity
-            android:name=".popup"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".character"
+            android:exported="false">
 
         </activity>
         <activity
             android:name=".join"
             android:exported="false" />
         <activity
-            android:name=".character"
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
