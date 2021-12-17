@@ -41,7 +41,7 @@ public class character extends AppCompatActivity {
     StringRequest stringRequest_CharInfo;
 
     ImageButton btn_home;
-
+    ImageButton mypage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class character extends AppCompatActivity {
 
         // 이미지 버튼(홈으로 이동)
         btn_home = findViewById(R.id.btn_home);
+        mypage = findViewById(R.id.mypage);
 
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
@@ -115,6 +116,14 @@ public class character extends AppCompatActivity {
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.layout, new Fragment5()).commit();
+            }
+        });
+
+        // 마이페이지 클릭리스너
+        mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.layout,new Fragment6()).commit();
             }
         });
 
