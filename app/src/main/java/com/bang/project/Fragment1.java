@@ -100,7 +100,7 @@ public class Fragment1 extends Fragment {
 
                 date_result = ""+year+(month+1)+dayOfMonth;
                 // 날짜 잘찍히는지 확인용 ex) 20211215 이런식으로 출력됨
-////                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), date_result, Toast.LENGTH_SHORT).show();
                 server(date_result, url);
             }
         });
@@ -132,11 +132,19 @@ public class Fragment1 extends Fragment {
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
         req_user = spf.getString("user", "unknown");
 
-        // 무조건 오늘 날짜 들어가야함(처음 페이지 들어올때 기본 셋팅)
+        // 처음 켰을때 무조건 발동. 오늘 날짜 들어가야함(처음 페이지 들어올때 기본 셋팅)
         server(date, url_athle);
         date_result = date;
 
         calendarView = v.findViewById(R.id.calendarView);
+
+        // 최초로 캘린더 클릭시 실행되어야함
+        calendar(url_athle);
+
+
+
+
+
 
         // 스위치 리스너 setOnCheckedChangeListener이용 -> CompoundButton.OnCheckedChangeListener생성
         mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

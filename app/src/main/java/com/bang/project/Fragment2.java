@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
+// 퀘스트 탭
 public class Fragment2 extends Fragment {
     private ListView listview;
 

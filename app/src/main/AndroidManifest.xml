@@ -16,9 +16,6 @@
             android:name=".popup"
             android:exported="false" />
         <activity
-            android:name=".raid"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
