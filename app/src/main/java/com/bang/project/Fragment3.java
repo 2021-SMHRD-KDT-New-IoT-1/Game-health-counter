@@ -100,10 +100,7 @@ public class Fragment3 extends Fragment {
                 cal.add(Calendar.DATE, 3);
                 String endDate = df.format(cal.getTime()).toString();
 
-                Toast.makeText(getContext(),endDate,Toast.LENGTH_SHORT).show();
-
                 tv_date.setText("참여기간 : "+startDate+" - "+endDate);
-
 
                 AlertDialog temp = builder.create();
 
@@ -185,10 +182,6 @@ public class Fragment3 extends Fragment {
         };
 
 
-
-
-
-
         requestQueue_raid = Volley.newRequestQueue(getContext());
         // 2. 전송할 URL
         String url_raid = "http://211.63.240.51:8087/final_project2/RaidInfo";
@@ -236,7 +229,6 @@ public class Fragment3 extends Fragment {
             jsonException.printStackTrace();
         }
     }
-
 
 
 }
