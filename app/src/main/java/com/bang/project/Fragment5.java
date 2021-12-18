@@ -23,8 +23,7 @@ public class Fragment5 extends Fragment {
         main_char.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment7()).commit();
             }
         });
 

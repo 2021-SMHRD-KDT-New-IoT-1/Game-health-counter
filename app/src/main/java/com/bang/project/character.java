@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,6 +38,7 @@ public class character extends AppCompatActivity {
     TextView tv_nick;
     TextView tv_level;
     ProgressBar bar_exp;
+    ImageView main_char;
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
@@ -47,6 +49,8 @@ public class character extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+
 
 
         //경험치 바 test
@@ -128,6 +132,7 @@ public class character extends AppCompatActivity {
             }
         });
 
+
         // 아이템 선택시 반응하는 리스너
         bnView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -156,6 +161,8 @@ public class character extends AppCompatActivity {
                 return true;
             }
         });
+
+
 
 
 
