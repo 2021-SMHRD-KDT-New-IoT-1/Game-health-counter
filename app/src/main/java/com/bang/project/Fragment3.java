@@ -84,264 +84,6 @@ public class Fragment3 extends Fragment {
 
 
 
-        if(tv_applier.getText().toString().equals("참가중")){
-            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //tv_applier.setText("참여중");
-                    builder = new AlertDialog.Builder(getActivity());
-                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                    builder.setView(constaintLayout_pull);
-                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-                    requestQueue_info.add(stringRequest_info);
-
-                    Calendar cal = Calendar.getInstance();
-                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                    cal.setTime(raidAl.get(0).getReg_date());
-
-                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                    cal.add(Calendar.DATE, 3);
-                    String endDate = df.format(cal.getTime()).toString();
-
-                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                    AlertDialog temp = builder.create();
-
-                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            temp.dismiss();
-                        }
-                    });
-                    temp.show();
-                }
-            });
-        }//if끝
-        else{
-            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("레이드에 참가하시겠습니까?");
-                    builder.setPositiveButton("아니오", null);
-                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            raidAl.get(0).setCheck("true");
-                            tv_applier.setText("참여중");
-                            builder = new AlertDialog.Builder(getActivity());
-                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                            builder.setView(constaintLayout_pull);
-                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-
-                            requestQueue_info.add(stringRequest_info);
-                            Calendar cal = Calendar.getInstance();
-                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                            cal.setTime(raidAl.get(0).getReg_date());
-
-                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                            cal.add(Calendar.DATE, 3);
-                            String endDate = df.format(cal.getTime()).toString();
-
-                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                            AlertDialog temp = builder.create();
-
-                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    temp.dismiss();
-                                }
-                            });
-                            temp.show();
-                        }
-                    });
-                    builder.create().show();
-                }
-            });
-        }//else 끝
-
-        if(tv_applier2.getText().toString().equals("참가중")){
-            v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //tv_applier.setText("참여중");
-                    builder = new AlertDialog.Builder(getActivity());
-                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                    builder.setView(constaintLayout_pull);
-                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-                    requestQueue_info.add(stringRequest_info);
-
-                    Calendar cal = Calendar.getInstance();
-                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                    cal.setTime(raidAl.get(0).getReg_date());
-
-                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                    cal.add(Calendar.DATE, 3);
-                    String endDate = df.format(cal.getTime()).toString();
-
-                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                    AlertDialog temp = builder.create();
-
-                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            temp.dismiss();
-                        }
-                    });
-                    temp.show();
-                }
-            });
-        }//if끝
-        else{
-            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("레이드에 참가하시겠습니까?");
-                    builder.setPositiveButton("아니오", null);
-                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            raidAl.get(0).setCheck("true");
-                            tv_applier.setText("참여중");
-                            builder = new AlertDialog.Builder(getActivity());
-                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                            builder.setView(constaintLayout_pull);
-                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-
-                            requestQueue_info.add(stringRequest_info);
-                            Calendar cal = Calendar.getInstance();
-                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                            cal.setTime(raidAl.get(0).getReg_date());
-
-                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                            cal.add(Calendar.DATE, 3);
-                            String endDate = df.format(cal.getTime()).toString();
-
-                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                            AlertDialog temp = builder.create();
-
-                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    temp.dismiss();
-                                }
-                            });
-                            temp.show();
-                        }
-                    });
-                    builder.create().show();
-                }
-            });
-        }//else 끝
-
-        if(tv_applier.getText().toString().equals("참가중")){
-            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //tv_applier.setText("참여중");
-                    builder = new AlertDialog.Builder(getActivity());
-                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                    builder.setView(constaintLayout_pull);
-                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-                    requestQueue_info.add(stringRequest_info);
-
-                    Calendar cal = Calendar.getInstance();
-                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                    cal.setTime(raidAl.get(0).getReg_date());
-
-                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                    cal.add(Calendar.DATE, 3);
-                    String endDate = df.format(cal.getTime()).toString();
-
-                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                    AlertDialog temp = builder.create();
-
-                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            temp.dismiss();
-                        }
-                    });
-                    temp.show();
-                }
-            });
-        }//if끝
-        else{
-            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("레이드에 참가하시겠습니까?");
-                    builder.setPositiveButton("아니오", null);
-                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            raidAl.get(0).setCheck("true");
-                            tv_applier.setText("참여중");
-                            builder = new AlertDialog.Builder(getActivity());
-                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                            builder.setView(constaintLayout_pull);
-                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
-
-
-                            requestQueue_info.add(stringRequest_info);
-                            Calendar cal = Calendar.getInstance();
-                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                            cal.setTime(raidAl.get(0).getReg_date());
-
-                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                            cal.add(Calendar.DATE, 3);
-                            String endDate = df.format(cal.getTime()).toString();
-
-                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
-
-                            AlertDialog temp = builder.create();
-
-                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    temp.dismiss();
-                                }
-                            });
-                            temp.show();
-                        }
-                    });
-                    builder.create().show();
-                }
-            });
-        }//else 끝
-
 
         //====================================통신===========================================
 
@@ -406,8 +148,204 @@ public class Fragment3 extends Fragment {
                 return params;
             }
         };
-
         requestQueue_raid.add(stringRequest_raid);
+
+
+        if(tv_applier.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                    builder.setView(constaintLayout_pull);
+                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+
+                    requestQueue_info.add(stringRequest_info);
+
+                    Calendar cal = Calendar.getInstance();
+                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                    cal.setTime(raidAl.get(0).getReg_date());
+
+                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                    cal.add(Calendar.DATE, 3);
+                    String endDate = df.format(cal.getTime()).toString();
+
+                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }else if(tv_applier.getText().toString().equals("참가하기")){
+            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier.setText("참가중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                            builder.setView(constaintLayout_pull);
+                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+
+
+                            requestQueue_info.add(stringRequest_info);
+                            Calendar cal = Calendar.getInstance();
+                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                            cal.setTime(raidAl.get(0).getReg_date());
+
+                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                            cal.add(Calendar.DATE, 3);
+                            String endDate = df.format(cal.getTime()).toString();
+
+                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                            AlertDialog temp = builder.create();
+
+                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
+
+        if(tv_applier2.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //tv_applier.setText("참여중");
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_sqt = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                    builder.setView(constaintLayout_sqt);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_sqt.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }//if끝
+        else{
+            v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier2.setText("참가중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_sqt = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
+                            builder.setView(constaintLayout_sqt);
+
+
+                            AlertDialog temp = builder.create();
+
+                            constaintLayout_sqt.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
+
+        if(tv_applier3.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //tv_applier.setText("참여중");
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_push = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
+                    builder.setView(constaintLayout_push);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_push.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }//if끝
+        else{
+            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier3.setText("참가중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_push = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
+                            builder.setView(constaintLayout_push);
+
+                            AlertDialog temp = builder.create();
+
+                            constaintLayout_push.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
+
+
+
         return v;
     }//onCreateView 중괄호
 
