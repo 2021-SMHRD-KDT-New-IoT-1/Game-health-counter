@@ -8,15 +8,13 @@
     android:background="#fffff0"
     tools:context=".Fragment5">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#fffff0"
-        android:src="@drawable/shhjchar"
+    <ImageView
+        android:id="@+id/main_char"
+        android:layout_width="146dp"
+        android:layout_height="237dp"
+        android:src="@drawable/boss1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
