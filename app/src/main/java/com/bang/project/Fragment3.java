@@ -376,7 +376,6 @@ public class Fragment3 extends Fragment {
         };
 
         requestQueue_raid = Volley.newRequestQueue(getContext());
-        // 2. 전송할 URL
         String url_raid = "http://211.63.240.51:8087/final_project2/RaidInfo";
 
 
