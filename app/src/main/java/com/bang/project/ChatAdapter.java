@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ChatAdapter extends BaseAdapter {
@@ -15,9 +16,9 @@ public class ChatAdapter extends BaseAdapter {
     private LayoutInflater inflater;  // 추출한 inflate를 저장할 변수
     private Context context; // inflater를 추출하기 위한 화면 정보
     private int layout; // 템플릿의 id
-    private ArrayList<ChatVO> data; // 꾸밀 데이터
+    private ArrayList<QuestVO> data; // 꾸밀 데이터
 
-    public ChatAdapter(Context context, int layout, ArrayList<ChatVO> data) {
+    public ChatAdapter(Context context, int layout, ArrayList<QuestVO> data) {
         this.context = context;
         this.layout = layout;
         this.data = data;
@@ -42,30 +43,17 @@ public class ChatAdapter extends BaseAdapter {
         }
 
         ImageView q_check1 = convertView.findViewById(R.id.q_check1);
-        ImageView q_check2 = convertView.findViewById(R.id.q_check2);
-        ImageView q_check3 = convertView.findViewById(R.id.q_check3);
         TextView q_text1 = convertView.findViewById(R.id.q_text1);
-        TextView q_text2 = convertView.findViewById(R.id.q_text2);
-        TextView q_text3 = convertView.findViewById(R.id.q_text3);
-        TextView q_date = convertView.findViewById(R.id.q_date);
         TextView q_cal1 = convertView.findViewById(R.id.q_cal1);
-        TextView q_cal2 = convertView.findViewById(R.id.q_cal2);
-        TextView q_cal3 = convertView.findViewById(R.id.q_cal3);
 
-        q_date.setText(data.get(0).getReg_date().toString());
-
-        q_text1.setText(data.get(0).getQ_name()+getCount()); //getQ_text1
-        q_check1.setImageResource(R.drawable.checked);//getQ_check1
-        q_cal1.setText(data.get(0).getQ_exp()+"");
-
-        q_text2.setText(data.get(1).getQ_name()+getCount());
-        q_check2.setImageResource(R.drawable.checked);
-        q_cal2.setText(data.get(1).getQ_exp()+"");
-
-        q_text3.setText(data.get(2).getQ_name()+getCount());
-        q_check3.setImageResource(R.drawable.checked);
-        q_cal3.setText(data.get(2).getQ_exp()+"");
-
+        //리스트뷰에 띄울 데이터 삽입하는 부분
+        q_text1.setText(data.get(position).getQ_name()); //getQ_text1
+        if(data.get(position).getQ_check().equals("Y")) {
+            q_check1.setImageResource(R.drawable.checked);//getQ_check1
+        } else {
+            q_check1.setImageResource(R.drawable.unchecked);//getQ_check1
+        }
+        q_cal1.setText(data.get(position).getQ_exp()+" Exp");
 
         return convertView;
     }

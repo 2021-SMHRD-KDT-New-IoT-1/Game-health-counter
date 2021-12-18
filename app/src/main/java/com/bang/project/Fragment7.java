@@ -31,14 +31,6 @@ public class Fragment7 extends Fragment {
         Animation alpha = AnimationUtils.loadAnimation(getContext(),R.anim.alpha);
         stat.startAnimation(alpha);
 
-        s_char.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment5()).commit();
-            }
-        });
-
-
         return v;
     }
 }

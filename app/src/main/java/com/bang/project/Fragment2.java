@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,11 +21,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,8 +34,8 @@ import java.util.Map;
 public class Fragment2 extends Fragment {
     private ListView listview;
 
-    private ChatVO vo;
-    private ArrayList<ChatVO> data = new ArrayList<>();
+    private QuestVO vo;
+    private ArrayList<QuestVO> data = new ArrayList<>();
     private int img[] = {R.id.checked};
 
     JSONArray jsonArray;
@@ -99,11 +98,9 @@ public class Fragment2 extends Fragment {
     private void jsonRead(String response) {
         try {
             jsonArray = new JSONArray(response);
-            //Gson gson = new Gson();
-            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+            Gson gson = new Gson();
             for (int i = 0; i < jsonArray.length(); i++) {
-                // raidAl.add(gson.fromJson(jsonArray.getJSONObject(i).toString() , RaidVO.class));
-                data.add(gson.fromJson(jsonArray.get(i).toString(), ChatVO.class));
+                data.add(gson.fromJson(jsonArray.get(i).toString(), QuestVO.class));
             }
         } catch (JSONException jsonException) {
             jsonException.printStackTrace();
