@@ -2,6 +2,8 @@ package com.bang.project;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -39,141 +41,333 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fragment3 extends Fragment {
-    ArrayList<RaidVO> al = new ArrayList<>();
-    RequestQueue requestQueue_raid; // 전송통로
-    StringRequest stringRequest_raid;
+    private ArrayList<RaidVO> al = new ArrayList<>();
+    private RequestQueue requestQueue_raid; // 전송통로
+    private StringRequest stringRequest_raid;
     RequestQueue requestQueue_info;
     StringRequest stringRequest_info;
     RaidVO raidvo;
     private JSONArray jsonArray;
-    ArrayList<RaidVO> raidAl = new ArrayList<>();
+    private ArrayList<RaidVO> raidAl = new ArrayList<>();
 
-    ConstraintLayout constaintLayout_pull;
-    ConstraintLayout constaintLayout_sqt;
-    ConstraintLayout constaintLayout_push;
-    AlertDialog.Builder builder;
+    private ConstraintLayout constaintLayout_pull;
+    private ConstraintLayout constaintLayout_sqt;
+    private ConstraintLayout constaintLayout_push;
+    private AlertDialog.Builder builder;
+    private TextView tv_applier;
+    private TextView tv_applier2;
+    private TextView tv_applier3;
     private Button btn_giveUp;
 
-    TextView tv_date;
-    TextView tv_allScore;
-    TextView tv_score;
-    ProgressBar bar_stat;
+    private TextView tv_date;
+    private TextView tv_allScore;
+    private TextView tv_score;
+    private ProgressBar bar_stat;
 
-    String myScore;
-    String allScore;
-
+    private String myScore;
+    private String allScore;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_3, container, false);
+
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
 
+
         btn_giveUp = v.findViewById(R.id.btn_giveUp);
+        tv_applier = v.findViewById(R.id.tv_applier);
+        tv_applier2 = v.findViewById(R.id.tv_applier2);
+        tv_applier3 = v.findViewById(R.id.tv_applier3);
         builder = new AlertDialog.Builder(getActivity());
 
 
 
+        if(tv_applier.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //tv_applier.setText("참여중");
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                    builder.setView(constaintLayout_pull);
+                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
 
-        v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                    requestQueue_info.add(stringRequest_info);
+
+                    Calendar cal = Calendar.getInstance();
+                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                    cal.setTime(raidAl.get(0).getReg_date());
+
+                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                    cal.add(Calendar.DATE, 3);
+                    String endDate = df.format(cal.getTime()).toString();
+
+                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }//if끝
+        else{
+            v.findViewById(R.id.constaintLayout_pull).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier.setText("참여중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                            builder.setView(constaintLayout_pull);
+                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
 
 
-                builder = new AlertDialog.Builder(getActivity());
-                constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
-                builder.setView(constaintLayout_pull);
-                tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
-                tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
-                bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
-                tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+                            requestQueue_info.add(stringRequest_info);
+                            Calendar cal = Calendar.getInstance();
+                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                            cal.setTime(raidAl.get(0).getReg_date());
+
+                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                            cal.add(Calendar.DATE, 3);
+                            String endDate = df.format(cal.getTime()).toString();
+
+                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                            AlertDialog temp = builder.create();
+
+                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
+
+        if(tv_applier2.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //tv_applier.setText("참여중");
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                    builder.setView(constaintLayout_pull);
+                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+
+                    requestQueue_info.add(stringRequest_info);
+
+                    Calendar cal = Calendar.getInstance();
+                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                    cal.setTime(raidAl.get(0).getReg_date());
+
+                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                    cal.add(Calendar.DATE, 3);
+                    String endDate = df.format(cal.getTime()).toString();
+
+                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }//if끝
+        else{
+            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier.setText("참여중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                            builder.setView(constaintLayout_pull);
+                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
 
 
-                requestQueue_info.add(stringRequest_info);
-                Calendar cal = Calendar.getInstance();
-                DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-                cal.setTime(raidAl.get(0).getReg_date());
+                            requestQueue_info.add(stringRequest_info);
+                            Calendar cal = Calendar.getInstance();
+                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                            cal.setTime(raidAl.get(0).getReg_date());
 
-                String startDate = df.format(raidAl.get(0).getReg_date()).toString();
-                cal.add(Calendar.DATE, 3);
-                String endDate = df.format(cal.getTime()).toString();
+                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                            cal.add(Calendar.DATE, 3);
+                            String endDate = df.format(cal.getTime()).toString();
 
-                tv_date.setText("참여기간 : "+startDate+" - "+endDate);
+                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
 
-                AlertDialog temp = builder.create();
+                            AlertDialog temp = builder.create();
 
-                constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        temp.dismiss();
-                    }
-                });
-                temp.show();
-            }
-        });
+                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
 
-        v.findViewById(R.id.constaintLayout_sqt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                builder = new AlertDialog.Builder(getActivity());
-                constaintLayout_sqt = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
-                builder.setView(constaintLayout_sqt);
-                AlertDialog temp = builder.create();
-                constaintLayout_sqt.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        temp.dismiss();
-                    }
-                });
-                temp.show();
-            }
+        if(tv_applier.getText().toString().equals("참가중")){
+            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //tv_applier.setText("참여중");
+                    builder = new AlertDialog.Builder(getActivity());
+                    constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                    builder.setView(constaintLayout_pull);
+                    tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                    tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                    bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                    tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
 
-        });
+                    requestQueue_info.add(stringRequest_info);
 
-        v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                builder = new AlertDialog.Builder(getActivity());
-                constaintLayout_push = (ConstraintLayout) inflater.inflate(R.layout.popup3, null);
-                builder.setView(constaintLayout_push);
-                AlertDialog temp = builder.create();
-                constaintLayout_push.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        temp.dismiss();
-                    }
-                });
-                temp.show();
-            }
-        });
+                    Calendar cal = Calendar.getInstance();
+                    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                    cal.setTime(raidAl.get(0).getReg_date());
+
+                    String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                    cal.add(Calendar.DATE, 3);
+                    String endDate = df.format(cal.getTime()).toString();
+
+                    tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                    AlertDialog temp = builder.create();
+
+                    constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
+                    temp.show();
+                }
+            });
+        }//if끝
+        else{
+            v.findViewById(R.id.constaintLayout_push).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("레이드에 참가하시겠습니까?");
+                    builder.setPositiveButton("아니오", null);
+                    builder.setNegativeButton("참가하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            raidAl.get(0).setCheck("true");
+                            tv_applier.setText("참여중");
+                            builder = new AlertDialog.Builder(getActivity());
+                            constaintLayout_pull = (ConstraintLayout) inflater.inflate(R.layout.popup, null);
+                            builder.setView(constaintLayout_pull);
+                            tv_date = constaintLayout_pull.findViewById(R.id.tv_date);
+                            tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
+                            bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
+                            tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+
+
+                            requestQueue_info.add(stringRequest_info);
+                            Calendar cal = Calendar.getInstance();
+                            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                            cal.setTime(raidAl.get(0).getReg_date());
+
+                            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+                            cal.add(Calendar.DATE, 3);
+                            String endDate = df.format(cal.getTime()).toString();
+
+                            tv_date.setText("참여기간 : " + startDate + " - " + endDate);
+
+                            AlertDialog temp = builder.create();
+
+                            constaintLayout_pull.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            temp.show();
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+        }//else 끝
+
+
+        //====================================통신===========================================
 
         requestQueue_info = Volley.newRequestQueue(getContext());
         // 2. 전송할 URL
         String url_info = "http://211.63.240.51:8087/final_project2/AppRaidInfo";
 
         stringRequest_info = new StringRequest(Request.Method.POST, url_info, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
-                String data[] = response.split("-");
+                String data[] = response.split("#");
                 myScore = data[0];
                 allScore = data[1];
-                tv_allScore.setText(allScore+" / "+raidAl.get(0).getRaid_cnt().toString());
-                tv_score.setText("내 기여 횟수 : "+myScore+"회");
+                tv_allScore.setText(allScore + " / " + raidAl.get(0).getRaid_cnt().toString());
+                tv_score.setText("내 기여 횟수 : " + myScore + "회");
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.v("LoginError", error.toString());
             }
-        }) {
+        })
+        {
             @Nullable
             @Override
-            // 안드에서 패러미터를 이용하여 이클립스 자바 서블릿(Login.java)으로 요청하는 부분
             protected Map<String, String> getParams() throws AuthFailureError {
-
                 HashMap<String, String> params = new HashMap<>();
                 params.put("m_id", spf.getString("user", "unknown"));
                 params.put("raid_seq", raidAl.get(0).getRaid_seq());
@@ -181,27 +375,31 @@ public class Fragment3 extends Fragment {
             }
         };
 
-
         requestQueue_raid = Volley.newRequestQueue(getContext());
         // 2. 전송할 URL
         String url_raid = "http://211.63.240.51:8087/final_project2/RaidInfo";
 
-        stringRequest_raid = new StringRequest(Request.Method.POST, url_raid, new Response.Listener<String>() {
 
+        stringRequest_raid = new StringRequest(Request.Method.POST, url_raid, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //Log.v("asdf", response);
                 jsonRead(response);
+                if (raidAl.get(0).getCheck().equals("true")) {
+                    tv_applier.setText("참가중");
+                } else {
+                    tv_applier.setText("참가하기");
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.v("LoginError", error.toString());
             }
-        }) {
+        })
+        {
             @Nullable
             @Override
-            // 안드에서 패러미터를 이용하여 이클립스 자바 서블릿(Login.java)으로 요청하는 부분
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("m_id", spf.getString("user", "unknown"));
@@ -211,12 +409,10 @@ public class Fragment3 extends Fragment {
         };
 
         requestQueue_raid.add(stringRequest_raid);
-
         return v;
+    }//onCreateView 중괄호
 
-    }
-
-    private void jsonRead(String response) {
+    private void jsonRead (String response){
         try {
             jsonArray = new JSONArray(response);
             //Gson gson = new Gson();
@@ -230,5 +426,4 @@ public class Fragment3 extends Fragment {
         }
     }
 
-
-}
+}//끝 중괄호
