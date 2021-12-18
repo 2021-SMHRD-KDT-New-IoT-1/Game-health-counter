@@ -52,16 +52,19 @@ public class ChatAdapter extends BaseAdapter {
         TextView q_cal2 = convertView.findViewById(R.id.q_cal2);
         TextView q_cal3 = convertView.findViewById(R.id.q_cal3);
 
-        q_date.setText(data.get(position).getQ_date());
-        q_text1.setText(data.get(position).getQ_text1());
-        q_check1.setImageResource(data.get(position).getQ_check1());
-        q_cal1.setText(data.get(position).getQ_cal1());
-        q_text2.setText(data.get(position).getQ_text2());
-        q_check2.setImageResource(data.get(position).getQ_check2());
-        q_cal2.setText(data.get(position).getQ_cal2());
-        q_text3.setText(data.get(position).getQ_text3());
-        q_check3.setImageResource(data.get(position).getQ_check3());
-        q_cal3.setText(data.get(position).getQ_cal3());
+        q_date.setText(data.get(0).getReg_date().toString());
+
+        q_text1.setText(data.get(0).getQ_name()+getCount()); //getQ_text1
+        q_check1.setImageResource(R.drawable.checked);//getQ_check1
+        q_cal1.setText(data.get(0).getQ_exp()+"");
+
+        q_text2.setText(data.get(1).getQ_name()+getCount());
+        q_check2.setImageResource(R.drawable.checked);
+        q_cal2.setText(data.get(1).getQ_exp()+"");
+
+        q_text3.setText(data.get(2).getQ_name()+getCount());
+        q_check3.setImageResource(R.drawable.checked);
+        q_cal3.setText(data.get(2).getQ_exp()+"");
 
 
         return convertView;
