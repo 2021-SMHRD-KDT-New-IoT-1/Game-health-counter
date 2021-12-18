@@ -183,6 +183,13 @@ public class Fragment3 extends Fragment {
                             temp.dismiss();
                         }
                     });
+
+                    constaintLayout_pull.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
                     temp.show();
                 }
             });
@@ -227,6 +234,12 @@ public class Fragment3 extends Fragment {
                                     temp.dismiss();
                                 }
                             });
+                            constaintLayout_pull.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
                             temp.show();
                         }
                     });
@@ -252,6 +265,12 @@ public class Fragment3 extends Fragment {
                             temp.dismiss();
                         }
                     });
+                    constaintLayout_sqt.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
                     temp.show();
                 }
             });
@@ -272,11 +291,15 @@ public class Fragment3 extends Fragment {
                             builder = new AlertDialog.Builder(getActivity());
                             constaintLayout_sqt = (ConstraintLayout) inflater.inflate(R.layout.popup2, null);
                             builder.setView(constaintLayout_sqt);
-
-
                             AlertDialog temp = builder.create();
 
                             constaintLayout_sqt.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            constaintLayout_sqt.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     temp.dismiss();
@@ -307,6 +330,12 @@ public class Fragment3 extends Fragment {
                             temp.dismiss();
                         }
                     });
+                    constaintLayout_push.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temp.dismiss();
+                        }
+                    });
                     temp.show();
                 }
             });
@@ -331,6 +360,12 @@ public class Fragment3 extends Fragment {
                             AlertDialog temp = builder.create();
 
                             constaintLayout_push.findViewById(R.id.btn_giveUp).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    temp.dismiss();
+                                }
+                            });
+                            constaintLayout_push.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     temp.dismiss();
