@@ -15,7 +15,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 
-
+// 캐릭터창으로 돌아가는 창
 public class Fragment8 extends Fragment {
     private ImageView middle_char;
     private TableLayout middle_stat;
