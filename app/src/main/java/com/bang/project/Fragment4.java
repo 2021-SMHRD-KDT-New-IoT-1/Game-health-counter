@@ -25,7 +25,7 @@ public class Fragment4 extends Fragment {
 
         r_listview = v.findViewById(R.id.r_listview);
 
-        r_data.add(new RankVO(R.drawable.shhjchar, "Lv10", "nick", "100exp"));
+        r_data.add(new RankVO(R.drawable.boss1, "Lv10", "nick", "100"));
 
         RankAdapter adapter = new RankAdapter(getContext(), R.layout.rank, r_data);
         r_listview.setAdapter(adapter);
