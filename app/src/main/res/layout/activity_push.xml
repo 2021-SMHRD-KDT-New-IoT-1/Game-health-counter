@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".push">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="253dp"
+        android:layout_height="56dp"
+        android:padding="10dp"
+        android:text="커스텀 상태 노티피케이션 생성 버튼"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
