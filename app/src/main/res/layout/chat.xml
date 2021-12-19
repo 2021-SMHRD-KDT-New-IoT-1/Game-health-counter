@@ -7,31 +7,33 @@
     android:background="#fffff0">
 
     <TableLayout
-        android:layout_width="345dp"
-        android:layout_height="54dp"
+        android:layout_width="349dp"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:layout_marginTop="15dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp">
 
             <TextView
                 android:id="@+id/q_text1"
-                android:layout_width="wrap_content"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="35dp"
-                android:text="- 스쿼트를 10회 하세요 "
+                android:paddingLeft="20dp"
+                android:text="dddddddddddddddddd"
                 android:textAlignment="textStart"
                 android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/q_check1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="40dp"
+                android:layout_width="26dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 app:srcCompat="@drawable/checked" />
 
@@ -39,8 +41,8 @@
                 android:id="@+id/q_cal1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="999cal"
+                android:paddingLeft="0dp"
+                android:text="1000 Exp"
                 android:textSize="16sp" />
 
         </TableRow>

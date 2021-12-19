@@ -59,7 +59,7 @@ public class Fragment2 extends Fragment {
         // 1. 통로생성
         requestQueue = Volley.newRequestQueue(getActivity());
         // 2. 전송할 URL
-        url_questList = "http://211.48.213.139:8081/final_project2/QuestList"; // 운동 서블릿
+        url_questList = "http://211.48.213.139:8081/final_project2/QuestList"; // 퀘스트 서블릿
 
         stringRequest_questList = new StringRequest(Request.Method.POST, url_questList, new Response.Listener<String>() {
 
