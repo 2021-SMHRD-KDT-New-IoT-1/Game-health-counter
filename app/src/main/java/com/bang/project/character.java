@@ -50,15 +50,9 @@ public class character extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-
-
-
         //경험치 바 test
         bar_exp = findViewById(R.id.bar_exp);
         bar_exp.setProgress(60); // 퍼센트(백분율)로 들어감
-
-
-
 
         // fragment 사용시 필요한 레이아웃, 버튼뷰
         frameLayout = findViewById(R.id.layout);
