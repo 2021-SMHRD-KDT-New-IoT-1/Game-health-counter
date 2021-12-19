@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 
-
+// 스텟창
 public class Fragment7 extends Fragment {
     private ImageView s_char;
     private TableLayout stat;
