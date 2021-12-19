@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,6 +42,12 @@ public class character extends AppCompatActivity {
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
+    RequestQueue requestQueue_exp;
+    StringRequest stringRequest_exp;
+    private int exp = 0;
+
+    private int result_lv;
+    private int result_exp;
 
     ImageButton btn_home;
     ImageButton mypage;
@@ -50,15 +56,8 @@ public class character extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-
-
-
-        //경험치 바 test
-        bar_exp = findViewById(R.id.bar_exp);
-        bar_exp.setProgress(60); // 퍼센트(백분율)로 들어감
-
-
-
+        // SharedPreferences
+        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
         // fragment 사용시 필요한 레이아웃, 버튼뷰
         frameLayout = findViewById(R.id.layout);
@@ -71,8 +70,8 @@ public class character extends AppCompatActivity {
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
 
-        // SharedPreferences
-        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
+        bar_exp = findViewById(R.id.bar_exp);
+
 
         // 메인화면 프레그먼트 셋팅(캐릭터로)
         getSupportFragmentManager().beginTransaction()
@@ -91,7 +90,7 @@ public class character extends AppCompatActivity {
                 String[] result = response.split(",");
 
                 tv_nick.setText(result[0]);
-                tv_level.setText("Lv "+result[1]);
+                //tv_level.setText("Lv "+result[1]);
 //                bar_exp.setText(result[2]+"회");
 
             }
@@ -162,12 +161,44 @@ public class character extends AppCompatActivity {
             }
         });
 
+        // 경험치 가져오기
+        requestQueue_exp = Volley.newRequestQueue(getApplicationContext());
+        // 2. 전송할 URL
+        String url_exp = "http://211.63.240.51:8087/final_project2/getExp";
 
 
+        stringRequest_exp = new StringRequest(Request.Method.POST, url_exp, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("-1")){
+                    Toast.makeText(getApplicationContext(),"서버가 불안정합니다. 다시 시도해주세요.",Toast.LENGTH_SHORT).show();
+                }else{
+                    exp = Integer.parseInt(response);
 
+                    //백분율로 나누기
+                    result_lv = exp/100;
+                    result_exp = exp%100;
+                    // 경험치바
+                     // 퍼센트(백분율)로 들어감
+                    bar_exp.setProgress(result_exp);
+                    tv_level.setText("Lv "+result_lv);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-
-
-
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("m_id", spf.getString("user","unknown"));
+                return params;
+            }
+        };
+        requestQueue_exp.add(stringRequest_exp);
     } // onCreate()
+
 }
