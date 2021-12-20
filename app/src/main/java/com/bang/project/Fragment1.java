@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,9 @@ public class Fragment1 extends Fragment {
     String req_user;
 
     Switch mode_switch;
+
+    ImageView imageView3;
+
 
     // 통신 메서드
     public void server(String date, String url) {
@@ -113,6 +117,9 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_1, container, false);
 
+        // 운동 이미지들
+        imageView3 = v.findViewById(R.id.imageView3);
+
         // 1. 통로생성
         requestQueue = Volley.newRequestQueue(getActivity());
         // 2. 전송할 URL
@@ -154,6 +161,8 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("타임 어택 모드");
+                    imageView3.setImageResource(R.drawable.c2);
+
                     server(date_result, url_athle_time);
                     // 타임어택 모드 캘린더(캘린더 눌렀을때만 작동함)
                     calendar(url_athle_time);
@@ -162,6 +171,8 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("일반 모드");
+                    imageView3.setImageResource(R.drawable.c);
+
                     server(date_result, url_athle);
                     // 일반운동 모드 캘린더(캘린더 눌렀을때만 작동함)
                     calendar(url_athle);
