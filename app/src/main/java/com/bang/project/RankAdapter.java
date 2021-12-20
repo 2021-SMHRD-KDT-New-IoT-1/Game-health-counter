@@ -49,8 +49,10 @@ public class RankAdapter extends BaseAdapter{
         TextView r_lv = convertView.findViewById(R.id.co);
         TextView r_nick = convertView.findViewById(R.id.r_nick);
         TextView r_exp = convertView.findViewById(R.id.r_exp);
+        TextView r_num = convertView.findViewById(R.id.r_num);
 
 //        r_logo.setImageResource(r_data.get(position).getR_logo());
+        r_num.setText(r_data.get(position).getRowNum()+"");
         r_lv.setText("Lv "+r_data.get(position).getC_level()+"");
         r_nick.setText(r_data.get(position).getM_nickname());
         r_exp.setText(r_data.get(position).getTotal_exp()+"");

@@ -48,8 +48,8 @@ public class character extends AppCompatActivity {
 
     // 캐릭터 정보 변수들
     private int result_lv = 1;
-    private int result_exp;
     private String result_nick;
+    private int result_exp;
 
 
     ImageButton btn_home;
@@ -192,12 +192,12 @@ public class character extends AppCompatActivity {
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv "+result_lv);
 
-                    // SharedPreferences 에디터 열어서 값 put해주기
-                    SharedPreferences.Editor edit = spf.edit();
-                    edit.putString("result_lv", result_lv+"");
-                    edit.putString("result_nick", result_nick);
-                    edit.putString("result_exp", result_exp+"");
-                    edit.commit();
+//                    // SharedPreferences 에디터 열어서 값 put해주기(보류된 코드)
+//                    SharedPreferences.Editor edit = spf.edit();
+//                    edit.putString("result_lv", result_lv+"");
+//                    edit.putString("result_nick", result_nick+"");
+//                    edit.putString("result_exp", result_exp+"");
+//                    edit.commit();
                 }
             }
         }, new Response.ErrorListener() {
