@@ -1,6 +1,8 @@
 package com.bang.project;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,20 +43,23 @@ public class ChatAdapter extends BaseAdapter {
             convertView =inflater.inflate(layout,parent,false);
         }
 
-        ImageView q_check1 = convertView.findViewById(R.id.q_check);
-        TextView q_text1 = convertView.findViewById(R.id.q_name);
-        TextView q_cal1 = convertView.findViewById(R.id.q_exp);
+        ImageView q_check = convertView.findViewById(R.id.q_check);
+        TextView q_name = convertView.findViewById(R.id.q_name);
+        TextView q_exp = convertView.findViewById(R.id.q_exp);
+
+
 
         //리스트뷰에 띄울 데이터 삽입하는 부분
-        q_text1.setText(data.get(position).getQ_name()); //getQ_text1
+        q_name.setText(data.get(position).getQ_name()); //getQ_text1
+
 
         if(data.get(position).getQ_check().equals("Y")) {
-            q_check1.setImageResource(R.drawable.checked);//getQ_check1
+           q_check.setImageResource(R.drawable.quest_check);
         } else {
-            q_check1.setImageResource(R.drawable.unchecked);//getQ_check1
+            q_check.setImageResource(R.drawable.quest_check_no);
         }
 
-        q_cal1.setText(data.get(position).getQ_exp()+" Exp");
+        q_exp.setText(data.get(position).getQ_exp()+" Exp");
 
         return convertView;
     }
