@@ -209,11 +209,11 @@ public class character extends AppCompatActivity {
                     tv_level.setText("Lv "+result_lv);
 
 //                    // SharedPreferences 에디터 열어서 값 put해주기(보류된 코드)
-//                    SharedPreferences.Editor edit = spf.edit();
+                    SharedPreferences.Editor edit = spf.edit();
 //                    edit.putString("result_lv", result_lv+"");
-//                    edit.putString("result_nick", result_nick+"");
+                    edit.putString("nick", result_nick+"");
 //                    edit.putString("result_exp", result_exp+"");
-//                    edit.commit();
+                    edit.commit();
                 }
             }
         }, new Response.ErrorListener() {

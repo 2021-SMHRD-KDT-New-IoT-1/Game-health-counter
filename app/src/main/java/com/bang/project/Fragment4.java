@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,6 +53,7 @@ public class Fragment4 extends Fragment {
     String nick;
     String exp;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,12 +67,10 @@ public class Fragment4 extends Fragment {
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
 //        lv = spf.getString("result_lv", "1");
-//        nick = spf.getString("result_nick", "unknown");
+        nick = spf.getString("nick", "unknown");
 //        exp = spf.getString("result_exp", "0");
 
-//        result_lv.setText("Lv "+lv);
-//        result_nick.setText(nick);
-//        result_exp.setText(exp);
+
 
 
         // 1. 통로생성
@@ -92,10 +92,6 @@ public class Fragment4 extends Fragment {
 //                Toast.makeText(getActivity(), data.get(0).getQ_name(), Toast.LENGTH_SHORT).show();
 
 
-
-
-
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -108,6 +104,7 @@ public class Fragment4 extends Fragment {
             // 안드에서 패러미터를 이용하여 이클립스 자바 서블릿(Login.java)으로 요청하는 부분
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
+
                 params.put("m_id", spf.getString("user", "unknown"));
 
                 return params;
@@ -124,6 +121,15 @@ public class Fragment4 extends Fragment {
             Gson gson = new Gson();
             for (int i = 0; i < jsonArray.length(); i++) {
                 r_data.add(gson.fromJson(jsonArray.get(i).toString(), RankVO.class));
+//                Toast.makeText(getActivity(), r_data.get(i).getM_nickname(), Toast.LENGTH_SHORT).show();
+
+                // 현재 사용자의 닉네임값이 들어있는 객체가 있을 시 그 객체 값을 받아와서 현재 사용자 랭킹 파트에 적용
+                if(r_data.get(i).getM_nickname().equals(nick)) {
+//                    Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
+                    result_lv.setText("Lv "+r_data.get(i).getC_level());
+                    result_nick.setText(r_data.get(i).getM_nickname()+"");
+                    result_exp.setText(r_data.get(i).getTotal_exp()+"");
+                }
             }
         } catch (JSONException jsonException) {
             jsonException.printStackTrace();

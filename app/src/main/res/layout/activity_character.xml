@@ -54,7 +54,7 @@
         android:layout_height="25dp"
         android:layout_marginStart="2dp"
         android:max="100"
-        android:progressBackgroundTintMode="src_atop"
+        android:progress="0"
         android:scaleY="3"
         app:layout_constraintBottom_toBottomOf="@+id/tv_level"
         app:layout_constraintStart_toEndOf="@+id/tv_level" />
