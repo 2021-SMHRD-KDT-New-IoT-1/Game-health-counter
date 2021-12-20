@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F0"
-    tools:context=".ranking">
+    tools:context=".Fragment4">
 
     <TextView
         android:id="@+id/textView9"
@@ -69,30 +69,28 @@
         android:id="@+id/r_listview"
         android:layout_width="270dp"
         android:layout_height="165dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tv_applier2"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TableLayout
-        android:layout_width="337dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="180dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="333dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_listview">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="47dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/rank_radius"
                 android:paddingTop="10dp"
                 android:text="10"
@@ -109,7 +107,7 @@
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/result_lv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -117,7 +115,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/result_nick"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -125,7 +123,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/result_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

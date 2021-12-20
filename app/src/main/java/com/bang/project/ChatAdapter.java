@@ -48,11 +48,13 @@ public class ChatAdapter extends BaseAdapter {
 
         //리스트뷰에 띄울 데이터 삽입하는 부분
         q_text1.setText(data.get(position).getQ_name()); //getQ_text1
+
         if(data.get(position).getQ_check().equals("Y")) {
             q_check1.setImageResource(R.drawable.checked);//getQ_check1
         } else {
             q_check1.setImageResource(R.drawable.unchecked);//getQ_check1
         }
+
         q_cal1.setText(data.get(position).getQ_exp()+" Exp");
 
         return convertView;

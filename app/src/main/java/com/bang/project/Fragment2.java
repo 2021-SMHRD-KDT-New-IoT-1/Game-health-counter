@@ -39,7 +39,6 @@ public class Fragment2 extends Fragment {
     private int img[] = {R.id.checked};
 
     JSONArray jsonArray;
-//    ArrayList<ChatVO> list = new ArrayList<>();
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_questList;
