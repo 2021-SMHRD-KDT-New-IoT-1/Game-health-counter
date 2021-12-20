@@ -45,15 +45,15 @@ public class RankAdapter extends BaseAdapter{
             convertView = inflater.inflate(layout,parent, false);
         }
 
-        ImageView r_logo = convertView.findViewById(R.id.r_logo);
+//        ImageView r_logo = convertView.findViewById(R.id.r_logo);
         TextView r_lv = convertView.findViewById(R.id.co);
         TextView r_nick = convertView.findViewById(R.id.r_nick);
         TextView r_exp = convertView.findViewById(R.id.r_exp);
 
-        r_logo.setImageResource(r_data.get(position).getR_logo());
-        r_lv.setText(r_data.get(position).getR_lv());
-        r_nick.setText(r_data.get(position).getR_nick());
-        r_exp.setText(r_data.get(position).getR_exp());
+//        r_logo.setImageResource(r_data.get(position).getR_logo());
+        r_lv.setText("Lv "+r_data.get(position).getC_level()+"");
+        r_nick.setText(r_data.get(position).getM_nickname());
+        r_exp.setText(r_data.get(position).getTotal_exp()+"");
 
         return convertView;
     }

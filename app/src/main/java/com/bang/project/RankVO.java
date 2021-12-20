@@ -1,49 +1,38 @@
 package com.bang.project;
 
 public class RankVO {
-    private int r_logo;
-    private String r_lv;
-    private String r_nick;
-    private String r_exp;
+    private String m_nickname;
+    private int c_level;
+    private int total_exp;
 
-    public RankVO(){}
-
-    public RankVO(int r_logo, String r_lv, String r_nick, String r_exp) {
-        this.r_logo = r_logo;
-        this.r_lv = r_lv;
-        this.r_nick = r_nick;
-        this.r_exp = r_exp;
+    public RankVO(String m_nickname, int c_level, int total_exp) {
+        super();
+        this.m_nickname = m_nickname;
+        this.c_level = c_level;
+        this.total_exp = total_exp;
     }
 
-    public int getR_logo() {
-        return r_logo;
+    public String getM_nickname() {
+        return m_nickname;
     }
 
-    public void setR_logo(int r_logo) {
-        this.r_logo = r_logo;
+    public void setM_nickname(String m_nickname) {
+        this.m_nickname = m_nickname;
     }
 
-    public String getR_lv() {
-        return r_lv;
+    public int getC_level() {
+        return c_level;
     }
 
-    public void setR_lv(String r_lv) {
-        this.r_lv = r_lv;
+    public void setC_level(int c_level) {
+        this.c_level = c_level;
     }
 
-    public String getR_nick() {
-        return r_nick;
+    public int getTotal_exp() {
+        return total_exp;
     }
 
-    public void setR_nick(String r_nick) {
-        this.r_nick = r_nick;
-    }
-
-    public String getR_exp() {
-        return r_exp;
-    }
-
-    public void setR_exp(String r_exp) {
-        this.r_exp = r_exp;
+    public void setTotal_exp(int total_exp) {
+        this.total_exp = total_exp;
     }
 }

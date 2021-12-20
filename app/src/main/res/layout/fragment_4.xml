@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F0"
-    tools:context=".ranking">
+    tools:context=".Fragment4">
 
     <TextView
         android:id="@+id/textView9"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
-        android:id="@+id/tv_applier_sqt"
+        android:id="@+id/tv_applier2"
         android:layout_width="47dp"
         android:layout_height="50dp"
         android:layout_marginStart="36dp"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_applier1" />
 
     <TextView
-        android:id="@+id/tv_applier_push"
+        android:id="@+id/tv_applier3"
         android:layout_width="47dp"
         android:layout_height="50dp"
         android:layout_marginStart="36dp"
@@ -63,7 +63,7 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_applier_sqt" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_applier2" />
 
     <ListView
         android:id="@+id/r_listview"
@@ -72,7 +72,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toEndOf="@+id/tv_applier_sqt"
+        app:layout_constraintStart_toEndOf="@+id/tv_applier2"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
