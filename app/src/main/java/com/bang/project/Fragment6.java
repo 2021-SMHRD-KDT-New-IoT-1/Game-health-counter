@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+// 마이페이지
 public class Fragment6 extends Fragment {
 
 
