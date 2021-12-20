@@ -20,59 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_applier1"
-        android:layout_width="47dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/rank_radius"
-        android:paddingTop="10dp"
-        android:text="1등"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/tv_applier2"
-        android:layout_width="47dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rank_radius"
-        android:paddingTop="10dp"
-        android:text="2등"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_applier1" />
-
-    <TextView
-        android:id="@+id/tv_applier3"
-        android:layout_width="47dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rank_radius"
-        android:paddingTop="10dp"
-        android:text="3등"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_applier2" />
-
     <ListView
         android:id="@+id/r_listview"
-        android:layout_width="270dp"
+        android:layout_width="333dp"
         android:layout_height="165dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_applier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TableLayout
@@ -88,12 +42,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/r_num2"
                 android:layout_width="47dp"
                 android:layout_height="50dp"
                 android:background="@drawable/rank_radius"
                 android:paddingTop="10dp"
-                android:text="10"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp" />
@@ -107,7 +60,7 @@
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <TextView
-                android:id="@+id/result_lv"
+                android:id="@+id/co2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -115,7 +68,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/result_nick"
+                android:id="@+id/r_nick2"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -123,7 +76,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/result_exp"
+                android:id="@+id/r_exp2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

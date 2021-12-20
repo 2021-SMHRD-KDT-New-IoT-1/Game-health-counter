@@ -58,9 +58,9 @@ public class Fragment4 extends Fragment {
         View v= inflater.inflate(R.layout.fragment_4, container, false);
         r_listview = v.findViewById(R.id.r_listview);
 
-        result_lv = v.findViewById(R.id.result_lv);
-        result_nick = v.findViewById(R.id.result_nick);
-        result_exp = v.findViewById(R.id.result_exp);
+        result_lv = v.findViewById(R.id.co2);
+        result_nick = v.findViewById(R.id.r_nick2);
+        result_exp = v.findViewById(R.id.r_exp2);
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
