@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ChatAdapter extends BaseAdapter {
@@ -42,9 +41,9 @@ public class ChatAdapter extends BaseAdapter {
             convertView =inflater.inflate(layout,parent,false);
         }
 
-        ImageView q_check1 = convertView.findViewById(R.id.q_check1);
-        TextView q_text1 = convertView.findViewById(R.id.q_text1);
-        TextView q_cal1 = convertView.findViewById(R.id.q_cal1);
+        ImageView q_check1 = convertView.findViewById(R.id.q_check);
+        TextView q_text1 = convertView.findViewById(R.id.q_name);
+        TextView q_cal1 = convertView.findViewById(R.id.q_exp);
 
         //리스트뷰에 띄울 데이터 삽입하는 부분
         q_text1.setText(data.get(position).getQ_name()); //getQ_text1
