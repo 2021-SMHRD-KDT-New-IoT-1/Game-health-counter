@@ -3,10 +3,16 @@ package com.bang.project;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,6 +64,16 @@ public class character extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+
+//        btnEnd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(MainActivity.this,MyService.class);
+//                stopService(intent);
+//            }
+//        });
 
         // SharedPreferences
         SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);

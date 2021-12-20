@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
         import android.view.animation.AlphaAnimation;
         import android.view.animation.Animation;
         import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView image;
@@ -23,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(MainActivity.this, MyService.class);
+        startService(intent);
 
         setContentView(R.layout.activity_main);
 
