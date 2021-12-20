@@ -46,7 +46,7 @@ public class character extends AppCompatActivity {
     StringRequest stringRequest_exp;
     private int exp = 0;
 
-    private int result_lv;
+    private int result_lv = 1;
     private int result_exp;
 
     ImageButton btn_home;
@@ -175,11 +175,16 @@ public class character extends AppCompatActivity {
                 }else{
                     exp = Integer.parseInt(response);
 
-                    //백분율로 나누기
-                    result_lv = exp/100;
-                    result_exp = exp%100;
+                    if(exp > 0) {
+                        //백분율로 나누기
+                        result_lv = exp / 100;
+                        result_exp = exp % 100;
+                    }else{
+                        result_lv = 1;
+                        result_exp = 0;
+                    }
                     // 경험치바
-                     // 퍼센트(백분율)로 들어감
+                    // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv "+result_lv);
                 }
