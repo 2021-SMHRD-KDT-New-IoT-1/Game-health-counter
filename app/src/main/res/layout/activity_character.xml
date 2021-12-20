@@ -57,8 +57,6 @@
         android:progressBackgroundTintMode="src_atop"
         android:scaleY="3"
         app:layout_constraintBottom_toBottomOf="@+id/tv_level"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tv_level" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -105,12 +103,13 @@
 
     <ImageButton
         android:id="@+id/mypage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_width="28dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/tv_nick"
-        app:srcCompat="@drawable/ic_baseline_settings_24"
-        tools:layout_editor_absoluteY="29dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
