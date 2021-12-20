@@ -40,7 +40,7 @@ public class Fragment4 extends Fragment {
     JSONArray jsonArray;
 
     RequestQueue requestQueue; // 전송통로
-    StringRequest stringRequest_questList;
+    StringRequest stringRequest_rankList;
     String url_rankList;
 
     TextView result_lv;
@@ -64,13 +64,13 @@ public class Fragment4 extends Fragment {
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
-        lv = spf.getString("result_lv", "1");
-        nick = spf.getString("result_nick", "unknown");
-        exp = spf.getString("result_exp", "0");
+//        lv = spf.getString("result_lv", "1");
+//        nick = spf.getString("result_nick", "unknown");
+//        exp = spf.getString("result_exp", "0");
 
-        result_lv.setText("Lv "+lv);
-        result_nick.setText(nick);
-        result_exp.setText(exp);
+//        result_lv.setText("Lv "+lv);
+//        result_nick.setText(nick);
+//        result_exp.setText(exp);
 
 
         // 1. 통로생성
@@ -78,7 +78,7 @@ public class Fragment4 extends Fragment {
         // 2. 전송할 URL
         url_rankList = "http://211.48.213.139:8081/final_project2/RankList"; // 랭킹 서블릿
 
-        stringRequest_questList = new StringRequest(Request.Method.POST, url_rankList, new Response.Listener<String>() {
+        stringRequest_rankList = new StringRequest(Request.Method.POST, url_rankList, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -90,6 +90,12 @@ public class Fragment4 extends Fragment {
 
                 // 값 넘어오는지 테스트
 //                Toast.makeText(getActivity(), data.get(0).getQ_name(), Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -108,7 +114,7 @@ public class Fragment4 extends Fragment {
             }
         };
 
-        requestQueue.add(stringRequest_questList);
+        requestQueue.add(stringRequest_rankList);
         return v;
     }
 
