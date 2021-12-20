@@ -82,6 +82,11 @@ public class Fragment3 extends Fragment {
         tv_applier3 = v.findViewById(R.id.tv_applier3);
         builder = new AlertDialog.Builder(getActivity());
 
+        v.findViewById(R.id.constaintLayout_push).setTag("8");
+        v.findViewById(R.id.constaintLayout_pull).setTag("12");
+        v.findViewById(R.id.constaintLayout_sqt).setTag("10");
+
+
 
 
 
@@ -112,7 +117,7 @@ public class Fragment3 extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("m_id", spf.getString("user", "unknown"));
-                params.put("raid_seq", raidAl.get(0).getRaid_seq());
+                params.put("raid_seq", Fragment3.this.getTag().toString());
                 return params;
             }
         };
@@ -126,6 +131,8 @@ public class Fragment3 extends Fragment {
             public void onResponse(String response) {
                 //Log.v("asdf", response);
                 jsonRead(response);
+
+
                 if (raidAl.get(0).getCheck().equals("true")) {
                     tv_applier.setText("참가중");
                 } else {
@@ -144,6 +151,9 @@ public class Fragment3 extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("m_id", spf.getString("user", "unknown"));
+                params.put("raid_seq_pull", Fragment3.this.constaintLayout_pull.getTag().toString());
+                params.put("raid_seq_sqt", Fragment3.this.constaintLayout_sqt.getTag().toString());
+                params.put("raid_seq_push", Fragment3.this.constaintLayout_push.getTag().toString());
 
                 return params;
             }
@@ -216,6 +226,7 @@ public class Fragment3 extends Fragment {
 
 
                             requestQueue_info.add(stringRequest_info);
+
                             Calendar cal = Calendar.getInstance();
                             DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
                             cal.setTime(raidAl.get(0).getReg_date());
