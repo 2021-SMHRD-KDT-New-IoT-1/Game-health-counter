@@ -22,11 +22,11 @@
             android:onClick="onclick1">
 
             <TextView
-                android:id="@+id/tv_applier"
+                android:id="@+id/tv_applier_pull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="참가중"
+                android:text="참가하기"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,7 @@
                 android:text="풀업"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_applier"
+                app:layout_constraintStart_toEndOf="@+id/tv_applier_pull"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -65,7 +65,7 @@
             android:onClick="onclick2">
 
             <TextView
-                android:id="@+id/tv_applier2"
+                android:id="@+id/tv_applier_sqt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -83,7 +83,7 @@
                 android:text="스쿼트"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_applier2"
+                app:layout_constraintStart_toEndOf="@+id/tv_applier_sqt"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.364" />
 
@@ -109,7 +109,7 @@
             android:onClick="onclick3">
 
             <TextView
-                android:id="@+id/tv_applier3"
+                android:id="@+id/tv_applier_push"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -127,7 +127,7 @@
                 android:text="푸시업"
                 android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_applier3"
+                app:layout_constraintStart_toEndOf="@+id/tv_applier_push"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.504" />
 
