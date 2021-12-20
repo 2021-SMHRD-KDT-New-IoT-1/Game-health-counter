@@ -43,7 +43,6 @@ public class ServiceThread extends Thread{
     public void run(){
         //반복적으로 수행할 작업을 한다.
         while(isRun){
-
             try{
                 Thread.sleep(60000); //60초씩 쉰다.
             }catch (Exception e) {}
@@ -57,7 +56,7 @@ public class ServiceThread extends Thread{
             String formatedNow = formatter.format(now);
             Message msg = new Message();
 
-            // 알림 띄울지 안띄울지
+            // 알림 띄울지 안띄울지 띄울거면 1 안띄울거면 0
             msg.arg1 = 1;
 
             handler.sendMessage(msg);//쓰레드에 있는 핸들러에게 메세지를 보냄
