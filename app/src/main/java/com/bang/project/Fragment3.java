@@ -31,6 +31,7 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -66,9 +67,11 @@ public class Fragment3 extends Fragment {
     private TextView tv_allScore;
     private TextView tv_score;
     private ProgressBar bar_stat;
+    private TextView tv_cnt;
 
     private String myScore;
     private String allScore;
+
 
     private String tag;
 
@@ -191,7 +194,8 @@ public class Fragment3 extends Fragment {
                 String data[] = response.split("#");
                 myScore = data[0];
                 allScore = data[1];
-                tv_allScore.setText(allScore + " / " + raidAl.get(0).getRaid_cnt());
+                tv_allScore.setText(allScore + " / ");
+
                 tv_score.setText("내 기여 횟수 : " + myScore + "회");
             }
         }, new Response.ErrorListener() {
@@ -225,6 +229,9 @@ public class Fragment3 extends Fragment {
                     tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
                     bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
                     tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+                    tv_cnt = constaintLayout_pull.findViewById(R.id.tv_cnt);
+
+                    tv_cnt.setText(raidAl.get(0).getRaid_cnt());
 
                     requestQueue_info.add(stringRequest_info);
 
@@ -275,7 +282,9 @@ public class Fragment3 extends Fragment {
                             tv_allScore = constaintLayout_pull.findViewById(R.id.tv_allScore);
                             bar_stat = constaintLayout_pull.findViewById(R.id.bar_stat);
                             tv_score = constaintLayout_pull.findViewById(R.id.tv_score);
+                            tv_cnt = constaintLayout_pull.findViewById(R.id.tv_cnt);
 
+                            tv_cnt.setText(raidAl.get(0).getRaid_cnt());
 
                             requestQueue_info.add(stringRequest_info);
 
@@ -328,6 +337,9 @@ public class Fragment3 extends Fragment {
                     tv_allScore = constaintLayout_sqt.findViewById(R.id.tv_allScore);
                     bar_stat = constaintLayout_sqt.findViewById(R.id.bar_stat);
                     tv_score = constaintLayout_sqt.findViewById(R.id.tv_score);
+                    tv_cnt = constaintLayout_sqt.findViewById(R.id.tv_cnt);
+
+                    tv_cnt.setText(raidAl.get(1).getRaid_cnt());
 
                     requestQueue_info.add(stringRequest_info);
 
@@ -379,6 +391,9 @@ public class Fragment3 extends Fragment {
                             tv_allScore = constaintLayout_sqt.findViewById(R.id.tv_allScore);
                             bar_stat = constaintLayout_sqt.findViewById(R.id.bar_stat);
                             tv_score = constaintLayout_sqt.findViewById(R.id.tv_score);
+                            tv_cnt = constaintLayout_sqt.findViewById(R.id.tv_cnt);
+
+                            tv_cnt.setText(raidAl.get(1).getRaid_cnt());
 
 
                             requestQueue_info.add(stringRequest_info);
@@ -400,7 +415,7 @@ public class Fragment3 extends Fragment {
                                 public void onClick(View v) {
                                     // delete!!!
                                     requestQueue_update.add(stringRequest_update);
-                                    tv_applier_pull.setText("참가하기");
+                                    tv_applier_sqt.setText("참가하기");
                                     temp.dismiss();
                                 }
                             });
@@ -432,6 +447,9 @@ public class Fragment3 extends Fragment {
                     tv_allScore = constaintLayout_push.findViewById(R.id.tv_allScore);
                     bar_stat = constaintLayout_push.findViewById(R.id.bar_stat);
                     tv_score = constaintLayout_push.findViewById(R.id.tv_score);
+                    tv_cnt = constaintLayout_push.findViewById(R.id.tv_cnt);
+
+                    tv_cnt.setText(raidAl.get(2).getRaid_cnt());
 
                     requestQueue_info.add(stringRequest_info);
 
@@ -483,6 +501,9 @@ public class Fragment3 extends Fragment {
                             tv_allScore = constaintLayout_push.findViewById(R.id.tv_allScore);
                             bar_stat = constaintLayout_push.findViewById(R.id.bar_stat);
                             tv_score = constaintLayout_push.findViewById(R.id.tv_score);
+                            tv_cnt = constaintLayout_push.findViewById(R.id.tv_cnt);
+
+                            tv_cnt.setText(raidAl.get(2).getRaid_cnt());
 
 
                             requestQueue_info.add(stringRequest_info);
