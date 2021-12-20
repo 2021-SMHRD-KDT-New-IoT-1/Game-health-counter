@@ -12,18 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".push"
+            android:exported="false" />
         <activity
             android:name=".character"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".join"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

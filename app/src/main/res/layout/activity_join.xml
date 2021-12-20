@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".join">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFFF0">
+        android:background="#FFFFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,8 +116,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:backgroundTint="#ffffff" />
+                android:backgroundTint="#ffffff"
+                android:ems="10" />
 
 
             <TextView
@@ -124,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:background="#FFFFF0"
+                android:background="@color/white"
                 android:text="닉네임"
                 android:textColor="#15513E"
                 android:textSize="20dp"
@@ -243,7 +244,6 @@
                 android:textColor="#15513E"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
 
 
         </LinearLayout>
