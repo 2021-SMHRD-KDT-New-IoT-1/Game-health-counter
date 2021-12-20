@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffff0">
+    android:background="#FFFFFFFF">
 
     <ImageView
         android:id="@+id/middle_char"
@@ -90,7 +90,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/r_nick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="999회"

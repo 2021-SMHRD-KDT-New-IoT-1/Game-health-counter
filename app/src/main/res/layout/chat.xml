@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffff0">
+    android:background="#FFFFFFFF">
 
     <TableLayout
         android:layout_width="349dp"
@@ -21,7 +21,7 @@
             android:layout_marginRight="10dp">
 
             <TextView
-                android:id="@+id/q_text1"
+                android:id="@+id/q_name"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
@@ -30,15 +30,15 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/q_check1"
+                android:id="@+id/q_check"
                 android:layout_width="26dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/checked" />
+                app:srcCompat="@drawable/quest_check" />
 
             <TextView
-                android:id="@+id/q_cal1"
+                android:id="@+id/q_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"

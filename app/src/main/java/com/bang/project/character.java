@@ -46,8 +46,11 @@ public class character extends AppCompatActivity {
     StringRequest stringRequest_exp;
     private int exp = 0;
 
+    // 캐릭터 정보 변수들
     private int result_lv = 1;
+    private String result_nick;
     private int result_exp;
+
 
     ImageButton btn_home;
     ImageButton mypage;
@@ -89,8 +92,9 @@ public class character extends AppCompatActivity {
 
                 String[] result = response.split(",");
 
-                tv_nick.setText(result[0]);
                 //tv_level.setText("Lv "+result[1]);
+                result_nick = result[0];
+                tv_nick.setText(result_nick);
 //                bar_exp.setText(result[2]+"회");
 
             }
@@ -187,6 +191,13 @@ public class character extends AppCompatActivity {
                     // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv "+result_lv);
+
+//                    // SharedPreferences 에디터 열어서 값 put해주기(보류된 코드)
+//                    SharedPreferences.Editor edit = spf.edit();
+//                    edit.putString("result_lv", result_lv+"");
+//                    edit.putString("result_nick", result_nick+"");
+//                    edit.putString("result_exp", result_exp+"");
+//                    edit.commit();
                 }
             }
         }, new Response.ErrorListener() {
