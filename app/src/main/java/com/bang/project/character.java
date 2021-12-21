@@ -3,10 +3,16 @@ package com.bang.project;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +54,7 @@ public class character extends AppCompatActivity {
 
     // 캐릭터 정보 변수들
     private int result_lv = 1;
-    private String result_nick;
+//    private String result_nick;
     private int result_exp;
 
 
@@ -58,6 +64,16 @@ public class character extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+
+//        btnEnd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(MainActivity.this,MyService.class);
+//                stopService(intent);
+//            }
+//        });
 
         // SharedPreferences
         SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
@@ -90,12 +106,14 @@ public class character extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                String[] result = response.split(",");
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                tv_nick.setText(response);
 
-                //tv_level.setText("Lv "+result[1]);
-                result_nick = result[0];
-                tv_nick.setText(result_nick);
-//                bar_exp.setText(result[2]+"회");
+                // SharedPreferences 에디터 열어서 닉값 put해주기
+                SharedPreferences.Editor edit = spf.edit();
+                edit.putString("nick", response);
+//                    Toast.makeText(getApplicationContext(), result_nick, Toast.LENGTH_SHORT).show();
+                edit.commit();
 
             }
         }, new Response.ErrorListener() {
@@ -168,7 +186,7 @@ public class character extends AppCompatActivity {
         // 경험치 가져오기
         requestQueue_exp = Volley.newRequestQueue(getApplicationContext());
         // 2. 전송할 URL
-        String url_exp = "http://211.63.240.51:8087/final_project2/getExp";
+        String url_exp = "http://211.48.213.139:8081/final_project2/getExp";
 
 
         stringRequest_exp = new StringRequest(Request.Method.POST, url_exp, new Response.Listener<String>() {
@@ -192,12 +210,6 @@ public class character extends AppCompatActivity {
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv "+result_lv);
 
-//                    // SharedPreferences 에디터 열어서 값 put해주기(보류된 코드)
-//                    SharedPreferences.Editor edit = spf.edit();
-//                    edit.putString("result_lv", result_lv+"");
-//                    edit.putString("result_nick", result_nick+"");
-//                    edit.putString("result_exp", result_exp+"");
-//                    edit.commit();
                 }
             }
         }, new Response.ErrorListener() {

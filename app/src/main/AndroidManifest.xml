@@ -12,12 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
-            android:name=".push"
+            android:name=".Push"
             android:exported="false" />
         <activity
             android:name=".character"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".join"
             android:exported="false" />

@@ -9,8 +9,6 @@
     <TableLayout
         android:layout_width="333dp"
         android:layout_height="51dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r_listview">
 
@@ -56,8 +54,8 @@
                 android:id="@+id/r_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="100"
+                android:layout_marginLeft="10dp"
+                android:text="10000"
                 android:textSize="24sp" />
         </TableRow>
 
