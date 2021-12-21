@@ -53,7 +53,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/push_cnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="999회"
@@ -72,9 +72,9 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/squart_cnt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="999회"
                 android:textSize="18sp" />
         </TableRow>
@@ -91,7 +91,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/r_nick"
+                android:id="@+id/pull_cnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="999회"
@@ -125,9 +125,9 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_modify"
+                android:id="@+id/push_tcnt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="999회"
                 android:textSize="18sp" />
         </TableRow>
@@ -144,9 +144,9 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/squart_tcnt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="999회"
                 android:textSize="18sp" />
         </TableRow>
@@ -163,7 +163,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView40"
+                android:id="@+id/pull_tcnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="999회"

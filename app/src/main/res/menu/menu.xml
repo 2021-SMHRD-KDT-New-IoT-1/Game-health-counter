@@ -17,4 +17,11 @@
         android:id="@+id/tab4"
         android:icon="@drawable/ic_baseline_grade_24"
         android:title="랭킹" />
+
+    <item
+        android:id="@+id/invisible"
+        android:icon="@drawable/boss1"
+        android:title="temp"
+        android:visible="false" />
+
 </menu>

@@ -43,7 +43,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/r_nick"
+                android:id="@+id/pull_cnt"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

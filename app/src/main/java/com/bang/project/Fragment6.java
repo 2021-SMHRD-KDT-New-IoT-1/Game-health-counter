@@ -1,6 +1,5 @@
 package com.bang.project;
 
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,7 +25,7 @@ public class Fragment6 extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_6, container, false);
 
-        tv_modify = v.findViewById(R.id.tv_modify);
+        tv_modify = v.findViewById(R.id.push_tcnt);
         tv_logout = v.findViewById(R.id.tv_logout);
 
         // SharedPreferences 초기화
