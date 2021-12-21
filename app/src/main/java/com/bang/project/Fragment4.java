@@ -35,7 +35,6 @@ import java.util.Map;
 public class Fragment4 extends Fragment {
     private ListView r_listview;
 
-    private RankVO vo;
     private ArrayList<RankVO> r_data = new ArrayList<>();
 
     JSONArray jsonArray;
