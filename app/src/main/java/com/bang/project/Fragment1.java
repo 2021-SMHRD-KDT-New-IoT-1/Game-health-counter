@@ -27,9 +27,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,8 +100,11 @@ public class Fragment1 extends Fragment {
         requestQueue.add(stringRequest_Athle);
     };
 
+
+
     // 캘린더 메서드
     public void calendar(String url) {
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -108,6 +115,8 @@ public class Fragment1 extends Fragment {
                 server(date_result, url);
             }
         });
+
+
     }
 
 
@@ -142,6 +151,8 @@ public class Fragment1 extends Fragment {
         // 처음 켰을때 무조건 발동. 오늘 날짜 들어가야함(처음 페이지 들어올때 기본 셋팅)
         server(date, url_athle);
         date_result = date;
+
+
 
         calendarView = v.findViewById(R.id.calendarView);
 

@@ -8,7 +8,6 @@
     android:background="#FFFFFFFF"
     tools:context=".Fragment1">
 
-
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="385dp"
