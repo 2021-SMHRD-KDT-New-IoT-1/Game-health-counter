@@ -10,6 +10,10 @@
         android:icon="@drawable/ic_baseline_task_24"
         android:title="퀘스트" />
     <item
+        android:id="@+id/tab5"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="홈" />
+    <item
         android:id="@+id/tab3"
         android:icon="@drawable/ic_baseline_flag_24"
         android:title="레이드" />
@@ -18,10 +22,10 @@
         android:icon="@drawable/ic_baseline_grade_24"
         android:title="랭킹" />
 
-    <item
-        android:id="@+id/invisible"
-        android:icon="@drawable/boss1"
-        android:title="temp"
-        android:visible="false" />
+<!--    <item-->
+<!--        android:id="@+id/invisible"-->
+<!--        android:icon="@drawable/boss1"-->
+<!--        android:title="temp"-->
+<!--        android:visible="false" />-->
 
 </menu>

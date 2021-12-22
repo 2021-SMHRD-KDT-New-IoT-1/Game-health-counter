@@ -85,7 +85,7 @@ public class character extends AppCompatActivity {
         bnView = findViewById(R.id.bnView);
 
         // 이미지 버튼(홈으로 이동)
-        btn_home = findViewById(R.id.btn_home);
+   //     btn_home = findViewById(R.id.btn_home);
         mypage = findViewById(R.id.mypage);
 
         tv_nick = findViewById(R.id.tv_nick);
@@ -139,15 +139,15 @@ public class character extends AppCompatActivity {
 
 
         // 홈 버튼 리스너
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.layout, new Fragment5()).commit();
-                bnView.setSelectedItemId(R.id.invisible);
-            }
-
-        });
+//        btn_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.layout, new Fragment5()).commit();
+//                bnView.setSelectedItemId(R.id.invisible);
+//            }
+//
+//        });
 
 
         // 마이페이지 클릭리스너
@@ -178,6 +178,9 @@ public class character extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.tab4) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment4()).commit();
+                }else if (item.getItemId() == R.id.tab5) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.layout, new Fragment5()).commit();
                 }
 
                 return true;

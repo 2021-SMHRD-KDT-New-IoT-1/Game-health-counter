@@ -43,8 +43,8 @@ public class MyService extends Service {
     //서비스가 종료될 때 할 작업
 
     public void onDestroy() {
-        thread.stopForever();
-        thread = null;//쓰레기 값을 만들어서 빠르게 회수하라고 null을 넣어줌.
+//        thread.stopForever();
+//        thread = null;//쓰레기 값을 만들어서 빠르게 회수하라고 null을 넣어줌.
     }
 
     class myServiceHandler extends Handler {
