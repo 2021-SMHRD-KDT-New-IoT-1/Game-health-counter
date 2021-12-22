@@ -8,7 +8,7 @@
     tools:context=".Fragment7">
 
     <ImageView
-        android:id="@+id/s_char"
+        android:id="@+id/main_char"
         android:layout_width="146dp"
         android:layout_height="237dp"
         android:layout_marginStart="36dp"
@@ -25,7 +25,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/s_char"
+        app:layout_constraintStart_toEndOf="@+id/main_char"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow

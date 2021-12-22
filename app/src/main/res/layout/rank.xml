@@ -20,10 +20,9 @@
                 android:id="@+id/r_num"
                 android:layout_width="47dp"
                 android:layout_height="50dp"
-                android:background="@drawable/rank_radius"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#585A67"
                 android:textSize="24sp" />
 
             <ImageView

@@ -29,9 +29,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,7 +68,7 @@ public class Fragment7 extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_7, container, false);
 
-        s_char = v.findViewById(R.id.s_char);
+        s_char = v.findViewById(R.id.main_char);
         stat = v.findViewById(R.id.stat);
 
         pull_cnt = v.findViewById(R.id.pull_cnt);
