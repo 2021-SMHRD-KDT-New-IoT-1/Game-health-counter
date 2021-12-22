@@ -34,11 +34,9 @@ import java.util.Map;
 public class Fragment2 extends Fragment {
     private ListView listview;
 
-    private QuestVO vo;
     private ArrayList<QuestVO> data = new ArrayList<>();
-    private int img[] = {R.id.checked};
-
     JSONArray jsonArray;
+
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_questList;

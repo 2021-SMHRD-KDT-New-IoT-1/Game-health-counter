@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -47,12 +48,30 @@ public class RankAdapter extends BaseAdapter{
 
 //        ImageView r_logo = convertView.findViewById(R.id.r_logo);
         TextView r_lv = convertView.findViewById(R.id.co);
-        TextView r_nick = convertView.findViewById(R.id.r_nick);
+        TextView r_nick = convertView.findViewById(R.id.pull_cnt);
         TextView r_exp = convertView.findViewById(R.id.r_exp);
         TextView r_num = convertView.findViewById(R.id.r_num);
 
 //        r_logo.setImageResource(r_data.get(position).getR_logo());
-        r_num.setText(r_data.get(position).getRowNum()+"");
+
+        int rownum = r_data.get(position).getRowNum();
+        r_num.setText(rownum+"");
+
+        r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_radius));
+
+        if(rownum == 1) {
+            r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.gold));
+//            r_num.setText("");
+        }
+        if(rownum == 2) {
+            r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.silver));
+//            r_num.setText("");
+        }
+        if(rownum == 3) {
+            r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.bronze));
+//            r_num.setText("");
+        }
+
         r_lv.setText("Lv "+r_data.get(position).getC_level()+"");
         r_nick.setText(r_data.get(position).getM_nickname());
         r_exp.setText(r_data.get(position).getTotal_exp()+"");

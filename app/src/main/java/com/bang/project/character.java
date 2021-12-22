@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -54,12 +55,13 @@ public class character extends AppCompatActivity {
 
     // 캐릭터 정보 변수들
     private int result_lv = 1;
-    private String result_nick;
+    //    private String result_nick;
     private int result_exp;
 
 
     ImageButton btn_home;
     ImageButton mypage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,12 +108,14 @@ public class character extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                String[] result = response.split(",");
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                tv_nick.setText(response);
 
-                //tv_level.setText("Lv "+result[1]);
-                result_nick = result[0];
-                tv_nick.setText(result_nick);
-//                bar_exp.setText(result[2]+"회");
+                // SharedPreferences 에디터 열어서 닉값 put해주기
+                SharedPreferences.Editor edit = spf.edit();
+                edit.putString("nick", response);
+//                    Toast.makeText(getApplicationContext(), result_nick, Toast.LENGTH_SHORT).show();
+                edit.commit();
 
             }
         }, new Response.ErrorListener() {
@@ -119,7 +123,7 @@ public class character extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -140,15 +144,20 @@ public class character extends AppCompatActivity {
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.layout, new Fragment5()).commit();
+                bnView.setSelectedItemId(R.id.invisible);
             }
+
         });
+
 
         // 마이페이지 클릭리스너
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.layout,new Fragment6()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment6()).commit();
             }
+
+
         });
 
 
@@ -157,22 +166,16 @@ public class character extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if(item.getItemId() == R.id.tab1) {
+                if (item.getItemId() == R.id.tab1) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment1()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab2) {
+                } else if (item.getItemId() == R.id.tab2) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment2()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab3) {
+                } else if (item.getItemId() == R.id.tab3) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment3()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab4) {
+                } else if (item.getItemId() == R.id.tab4) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment4()).commit();
                 }
@@ -184,36 +187,30 @@ public class character extends AppCompatActivity {
         // 경험치 가져오기
         requestQueue_exp = Volley.newRequestQueue(getApplicationContext());
         // 2. 전송할 URL
-        String url_exp = "http://211.63.240.51:8087/final_project2/getExp";
+        String url_exp = "http://211.48.213.139:8081/final_project2/getExp";
 
 
         stringRequest_exp = new StringRequest(Request.Method.POST, url_exp, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response.equals("-1")){
-                    Toast.makeText(getApplicationContext(),"서버가 불안정합니다. 다시 시도해주세요.",Toast.LENGTH_SHORT).show();
-                }else{
+                if (response.equals("-1")) {
+                    Toast.makeText(getApplicationContext(), "서버가 불안정합니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
                     exp = Integer.parseInt(response);
 
-                    if(exp > 0) {
+                    if (exp > 0) {
                         //백분율로 나누기
                         result_lv = exp / 100;
                         result_exp = exp % 100;
-                    }else{
+                    } else {
                         result_lv = 1;
                         result_exp = 0;
                     }
                     // 경험치바
                     // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
-                    tv_level.setText("Lv "+result_lv);
+                    tv_level.setText("Lv " + result_lv);
 
-//                    // SharedPreferences 에디터 열어서 값 put해주기(보류된 코드)
-                    SharedPreferences.Editor edit = spf.edit();
-//                    edit.putString("result_lv", result_lv+"");
-                    edit.putString("nick", result_nick+"");
-//                    edit.putString("result_exp", result_exp+"");
-                    edit.commit();
                 }
             }
         }, new Response.ErrorListener() {
@@ -221,12 +218,12 @@ public class character extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("m_id", spf.getString("user","unknown"));
+                params.put("m_id", spf.getString("user", "unknown"));
                 return params;
             }
         };

@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+// 랭킹 탭
 public class Fragment4 extends Fragment {
     private ListView r_listview;
 
@@ -44,9 +44,10 @@ public class Fragment4 extends Fragment {
     StringRequest stringRequest_rankList;
     String url_rankList;
 
-    TextView result_lv;
-    TextView result_nick;
-    TextView result_exp;
+    TextView co2;
+    TextView r_nick2;
+    TextView r_exp2;
+    TextView r_num2;
 
     // 사용자 캐릭터 정보
     String lv;
@@ -60,14 +61,16 @@ public class Fragment4 extends Fragment {
         View v= inflater.inflate(R.layout.fragment_4, container, false);
         r_listview = v.findViewById(R.id.r_listview);
 
-        result_lv = v.findViewById(R.id.co2);
-        result_nick = v.findViewById(R.id.r_nick2);
-        result_exp = v.findViewById(R.id.r_exp2);
+        co2 = v.findViewById(R.id.co2);
+        r_nick2 = v.findViewById(R.id.r_nick2);
+        r_exp2 = v.findViewById(R.id.r_exp2);
+        r_num2 = v.findViewById(R.id.r_num2);
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
 //        lv = spf.getString("result_lv", "1");
         nick = spf.getString("nick", "unknown");
+        Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
 //        exp = spf.getString("result_exp", "0");
 
 
@@ -126,9 +129,10 @@ public class Fragment4 extends Fragment {
                 // 현재 사용자의 닉네임값이 들어있는 객체가 있을 시 그 객체 값을 받아와서 현재 사용자 랭킹 파트에 적용
                 if(r_data.get(i).getM_nickname().equals(nick)) {
 //                    Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
-                    result_lv.setText("Lv "+r_data.get(i).getC_level());
-                    result_nick.setText(r_data.get(i).getM_nickname()+"");
-                    result_exp.setText(r_data.get(i).getTotal_exp()+"");
+                    co2.setText("Lv "+r_data.get(i).getC_level());
+                    r_nick2.setText(r_data.get(i).getM_nickname()+"");
+                    r_exp2.setText(r_data.get(i).getTotal_exp()+"");
+                    r_num2.setText(r_data.get(i).getRowNum()+"");
                 }
             }
         } catch (JSONException jsonException) {
