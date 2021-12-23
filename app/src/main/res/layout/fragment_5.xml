@@ -2,19 +2,172 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF"
-    tools:context=".Fragment5">
+    android:background="@drawable/background1"
+    tools:context=".Fragment7">
 
     <ImageView
         android:id="@+id/main_char"
         android:layout_width="146dp"
         android:layout_height="237dp"
-        android:src="@drawable/boss1"
+        android:layout_marginStart="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/char1_1" />
+
+    <TableLayout
+        android:id="@+id/stat"
+        android:layout_width="193dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/main_char"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="누적횟수"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="푸쉬업"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/push_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999회"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스쿼트"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/squart_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="999회"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="풀업"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/pull_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999회"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="타임어택"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="푸쉬업"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/push_tcnt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="999회"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스쿼트"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/squart_tcnt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="999회"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="풀업"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/pull_tcnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999회"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

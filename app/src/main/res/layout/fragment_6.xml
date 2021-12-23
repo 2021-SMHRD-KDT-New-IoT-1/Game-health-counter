@@ -41,10 +41,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_modify" />
+        app:layout_constraintTop_toBottomOf="@+id/push_tcnt" />
 
     <TextView
-        android:id="@+id/tv_modify"
+        android:id="@+id/push_tcnt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"

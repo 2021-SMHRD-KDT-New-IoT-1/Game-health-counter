@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -49,7 +48,7 @@ public class RankAdapter extends BaseAdapter{
 
 //        ImageView r_logo = convertView.findViewById(R.id.r_logo);
         TextView r_lv = convertView.findViewById(R.id.co);
-        TextView r_nick = convertView.findViewById(R.id.r_nick);
+        TextView r_nick = convertView.findViewById(R.id.pull_cnt);
         TextView r_exp = convertView.findViewById(R.id.r_exp);
         TextView r_num = convertView.findViewById(R.id.r_num);
 

@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -54,12 +55,13 @@ public class character extends AppCompatActivity {
 
     // 캐릭터 정보 변수들
     private int result_lv = 1;
-//    private String result_nick;
+    //    private String result_nick;
     private int result_exp;
 
 
     ImageButton btn_home;
     ImageButton mypage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +85,7 @@ public class character extends AppCompatActivity {
         bnView = findViewById(R.id.bnView);
 
         // 이미지 버튼(홈으로 이동)
-        btn_home = findViewById(R.id.btn_home);
+   //     btn_home = findViewById(R.id.btn_home);
         mypage = findViewById(R.id.mypage);
 
         tv_nick = findViewById(R.id.tv_nick);
@@ -106,7 +108,7 @@ public class character extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                 tv_nick.setText(response);
 
                 // SharedPreferences 에디터 열어서 닉값 put해주기
@@ -121,7 +123,7 @@ public class character extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -137,20 +139,25 @@ public class character extends AppCompatActivity {
 
 
         // 홈 버튼 리스너
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.layout, new Fragment5()).commit();
-            }
-        });
+//        btn_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.layout, new Fragment5()).commit();
+//                bnView.setSelectedItemId(R.id.invisible);
+//            }
+//
+//        });
+
 
         // 마이페이지 클릭리스너
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.layout,new Fragment6()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment6()).commit();
             }
+
+
         });
 
 
@@ -159,24 +166,21 @@ public class character extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if(item.getItemId() == R.id.tab1) {
+                if (item.getItemId() == R.id.tab1) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment1()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab2) {
+                } else if (item.getItemId() == R.id.tab2) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment2()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab3) {
+                } else if (item.getItemId() == R.id.tab3) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment3()).commit();
-                }
-
-                else if(item.getItemId() == R.id.tab4) {
+                } else if (item.getItemId() == R.id.tab4) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment4()).commit();
+                }else if (item.getItemId() == R.id.tab5) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.layout, new Fragment5()).commit();
                 }
 
                 return true;
@@ -192,23 +196,23 @@ public class character extends AppCompatActivity {
         stringRequest_exp = new StringRequest(Request.Method.POST, url_exp, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response.equals("-1")){
-                    Toast.makeText(getApplicationContext(),"서버가 불안정합니다. 다시 시도해주세요.",Toast.LENGTH_SHORT).show();
-                }else{
+                if (response.equals("-1")) {
+                    Toast.makeText(getApplicationContext(), "서버가 불안정합니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
                     exp = Integer.parseInt(response);
 
-                    if(exp > 0) {
+                    if (exp > 0) {
                         //백분율로 나누기
                         result_lv = exp / 100;
                         result_exp = exp % 100;
-                    }else{
+                    } else {
                         result_lv = 1;
                         result_exp = 0;
                     }
                     // 경험치바
                     // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
-                    tv_level.setText("Lv "+result_lv);
+                    tv_level.setText("Lv " + result_lv);
 
                 }
             }
@@ -217,12 +221,12 @@ public class character extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("m_id", spf.getString("user","unknown"));
+                params.put("m_id", spf.getString("user", "unknown"));
                 return params;
             }
         };

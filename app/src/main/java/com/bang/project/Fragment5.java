@@ -20,6 +20,7 @@ public class Fragment5 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_5, container, false);
 
         main_char = v.findViewById(R.id.main_char);
+
         main_char.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
