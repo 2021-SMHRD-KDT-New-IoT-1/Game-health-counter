@@ -3,6 +3,7 @@ package com.bang.project;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -98,6 +99,7 @@ public class Fragment1 extends Fragment {
 
     // 캘린더 메서드
     public void calendar(String url) {
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
