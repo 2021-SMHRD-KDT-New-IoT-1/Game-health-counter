@@ -1,6 +1,7 @@
 package com.bang.project;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,10 @@ public class Fragment5 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_5, container, false);
 
         main_char = v.findViewById(R.id.main_char);
+
+
+
+        출처: https://neoroid.tistory.com/317 [그린 블로그]
 
         main_char.setOnClickListener(new View.OnClickListener() {
             @Override

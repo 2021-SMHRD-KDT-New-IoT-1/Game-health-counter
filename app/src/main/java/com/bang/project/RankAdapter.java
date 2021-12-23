@@ -57,8 +57,7 @@ public class RankAdapter extends BaseAdapter{
         int rownum = r_data.get(position).getRowNum();
         r_num.setText(rownum+"");
 
-        // rank_radius 이미지 파일 바꾸면 랭킹에 적용됨
-        r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_radius));
+        r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_blank));
 
         if(rownum == 1) {
             r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.gold));
@@ -73,16 +72,9 @@ public class RankAdapter extends BaseAdapter{
 //            r_num.setText("");
         }
 
-        if(r_data.get(position).getTotal_exp() >= 1000) {
-            r_exp.setText(r_data.get(position).getTotal_exp()+"");
-            r_lv.setText("Lv 10");
-
-        } else {
-            r_exp.setText(r_data.get(position).getTotal_exp()+"");
-            r_lv.setText("Lv "+r_data.get(position).getC_level()+"");
-        }
-
+        r_lv.setText("Lv "+r_data.get(position).getC_level()+"");
         r_nick.setText(r_data.get(position).getM_nickname());
+        r_exp.setText(r_data.get(position).getTotal_exp()+"");
 
         return convertView;
     }

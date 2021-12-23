@@ -51,6 +51,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tv_progress_horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/progressBar"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="1500 / 3000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="161dp"
                 android:layout_height="22dp"
@@ -85,7 +99,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="36dp"
-                android:text="기여도  34 /100"
+                android:text="기여도  34 / 100"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar" />
@@ -120,7 +134,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="36dp"
-                android:text="기여도  34 /100"
+                android:text="기여도  34 / 100"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView25"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
@@ -162,6 +176,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_progress_horizontal2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/progressBar2"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="1500 / 3000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+                app:layout_constraintEnd_toEndOf="@+id/progressBar2"
+                app:layout_constraintStart_toStartOf="@+id/progressBar2"
+                app:layout_constraintTop_toTopOf="@+id/progressBar2" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -209,7 +237,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="36dp"
-                android:text="기여도  34 /100"
+                android:text="기여도  34 / 100"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
@@ -250,6 +278,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_progress_horizontal3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/progressBar3"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="1500 / 3000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
+                app:layout_constraintEnd_toEndOf="@+id/progressBar3"
+                app:layout_constraintStart_toStartOf="@+id/progressBar3"
+                app:layout_constraintTop_toTopOf="@+id/progressBar3" />
 
             <TextView
                 android:id="@+id/tv_applier_push"
