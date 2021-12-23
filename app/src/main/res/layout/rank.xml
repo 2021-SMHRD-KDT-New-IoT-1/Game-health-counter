@@ -3,63 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:background="@drawable/rank_listview_radius">
 
 
-    <TableLayout
-        android:layout_width="333dp"
-        android:layout_height="51dp"
-        android:gravity="center"
+    <TextView
+        android:id="@+id/r_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="10000"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pull_cnt"
+        app:layout_constraintStart_toEndOf="@+id/pull_cnt"
+        app:layout_constraintTop_toTopOf="@+id/pull_cnt" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/r_num"
+        app:layout_constraintStart_toEndOf="@+id/r_num"
+        app:layout_constraintTop_toTopOf="@+id/r_num"
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+    <TextView
+        android:id="@+id/r_num"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="3dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r_listview">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/rank_listview_radius">
+    <TextView
+        android:id="@+id/co"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Lv10"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
-            <TextView
-                android:id="@+id/r_num"
-                android:layout_width="47dp"
-                android:layout_height="50dp"
-                android:padding="3dp"
-                android:textAlignment="center"
-                android:textColor="#585A67"
-                android:textSize="24sp" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@android:drawable/ic_menu_myplaces" />
-
-            <TextView
-                android:id="@+id/co"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Lv10"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/pull_cnt"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="bang9"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/r_exp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="10000"
-                android:textSize="16sp" />
-        </TableRow>
-
-    </TableLayout>
+    <TextView
+        android:id="@+id/pull_cnt"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="bang9"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/co"
+        app:layout_constraintStart_toEndOf="@+id/co"
+        app:layout_constraintTop_toTopOf="@+id/co" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
