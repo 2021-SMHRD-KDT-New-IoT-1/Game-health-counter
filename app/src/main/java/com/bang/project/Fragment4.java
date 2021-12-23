@@ -70,7 +70,7 @@ public class Fragment4 extends Fragment {
 
 //        lv = spf.getString("result_lv", "1");
         nick = spf.getString("nick", "unknown");
-        Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
 //        exp = spf.getString("result_exp", "0");
 
 
