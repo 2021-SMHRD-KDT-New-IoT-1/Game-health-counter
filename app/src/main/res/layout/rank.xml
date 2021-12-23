@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Lv10"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
             <TextView
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="bang9"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
             <TextView
@@ -57,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="10000"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp" />
         </TableRow>
 
