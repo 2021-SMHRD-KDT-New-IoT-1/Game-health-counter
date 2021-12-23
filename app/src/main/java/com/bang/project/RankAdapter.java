@@ -57,6 +57,7 @@ public class RankAdapter extends BaseAdapter{
         int rownum = r_data.get(position).getRowNum();
         r_num.setText(rownum+"");
 
+        // rank_radius 이미지 파일 바꾸면 랭킹에 적용됨
         r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_radius));
 
         if(rownum == 1) {
