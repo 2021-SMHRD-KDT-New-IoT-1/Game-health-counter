@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/background3" />
+            android:src="@drawable/real_background" />
 
         <TextView
             android:id="@+id/textView38"
