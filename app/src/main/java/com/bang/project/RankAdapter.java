@@ -57,7 +57,7 @@ public class RankAdapter extends BaseAdapter{
         int rownum = r_data.get(position).getRowNum();
         r_num.setText(rownum+"");
 
-        r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_radius));
+        r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.rank_blank));
 
         if(rownum == 1) {
             r_num.setBackground(ContextCompat.getDrawable(context, R.drawable.gold));

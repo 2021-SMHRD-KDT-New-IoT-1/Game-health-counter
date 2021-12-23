@@ -103,4 +103,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_settings_24" />
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_alpha" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
