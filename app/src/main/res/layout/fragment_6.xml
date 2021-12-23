@@ -64,7 +64,7 @@
         android:layout_marginTop="72dp"
         android:text="푸쉬 알림"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +87,7 @@
         android:layout_marginTop="20dp"
         android:text="로그아웃"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
@@ -100,7 +100,7 @@
         android:layout_marginTop="20dp"
         android:text="회원정보수정"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -111,8 +111,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="20dp"
-        android:text="1 : 1 문의하기"
-        android:textSize="20sp"
+        android:text="문의하기"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
@@ -124,7 +124,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="20dp"
         android:text="공지사항"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
