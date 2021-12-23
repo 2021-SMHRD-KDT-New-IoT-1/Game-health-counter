@@ -128,7 +128,14 @@ public class Fragment4 extends Fragment {
                 // 현재 사용자의 닉네임값이 들어있는 객체가 있을 시 그 객체 값을 받아와서 현재 사용자 랭킹 파트에 적용
                 if(r_data.get(i).getM_nickname().equals(nick)) {
 //                    Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
-                    co2.setText("Lv "+r_data.get(i).getC_level());
+
+                    if(r_data.get(i).getTotal_exp() >= 1000) {
+                        co2.setText("Lv 10");
+                    } else {
+                        co2.setText("Lv "+r_data.get(i).getC_level());
+                    }
+
+
                     r_nick2.setText(r_data.get(i).getM_nickname()+"");
                     r_exp2.setText(r_data.get(i).getTotal_exp()+"");
                     r_num2.setText(r_data.get(i).getRowNum()+"");
