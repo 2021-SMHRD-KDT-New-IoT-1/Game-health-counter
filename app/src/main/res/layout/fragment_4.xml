@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="주간 경험치 랭킹"
-        android:textColor="#15513E"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
             android:layout_height="50dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="#585A67"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
         <ImageView
