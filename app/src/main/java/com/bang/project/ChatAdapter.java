@@ -55,6 +55,7 @@ public class ChatAdapter extends BaseAdapter {
 
         if(data.get(position).getQ_check().equals("Y")) {
            q_check.setImageResource(R.drawable.quest_check);
+           q_exp.setTextColor(Color.parseColor("#66C266"));
         } else {
             q_check.setImageResource(R.drawable.quest_check_no);
         }

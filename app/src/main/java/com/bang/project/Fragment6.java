@@ -71,11 +71,13 @@ public class Fragment6 extends Fragment {
                 intent = new Intent(getContext(), MyService.class);
                 if (isChecked){
                     getContext().startService(intent);
-                }else{
+                }
+                else if(!isChecked){
                     getContext().stopService(intent);
                 }
-                SharedPreferences.Editor edit = spf.edit();
-                edit.putBoolean("push",isChecked).commit();
+
+//                SharedPreferences.Editor edit = spf.edit();
+//                edit.putBoolean("push",isChecked).commit();
             }
         });
 

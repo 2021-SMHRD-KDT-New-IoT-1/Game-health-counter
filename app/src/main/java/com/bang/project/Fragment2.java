@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,6 +36,7 @@ import java.util.Map;
 // 퀘스트 탭
 public class Fragment2 extends Fragment {
     private ListView listview;
+    private TextView q_list;
 
     private ArrayList<QuestVO> data = new ArrayList<>();
     JSONArray jsonArray;
@@ -49,9 +51,11 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_2, container, false);
         listview = v.findViewById(R.id.listview);
+        q_list = v.findViewById(R.id.q_list);
 
         Animation list_up = AnimationUtils.loadAnimation(getContext(),R.anim.list_up);
         listview.startAnimation(list_up);
+        q_list.startAnimation(list_up);
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
