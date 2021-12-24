@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/q_list"
         android:layout_width="350dp"
         android:layout_height="420dp"
         android:background="@drawable/rank_radius2"
