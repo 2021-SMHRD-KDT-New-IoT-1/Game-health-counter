@@ -85,7 +85,7 @@
             <TextView
                 android:id="@+id/push_cnt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="999회"
                 android:textColor="#DCDCDC"
                 android:textSize="18sp" />
