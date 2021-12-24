@@ -203,7 +203,7 @@ public class character extends AppCompatActivity {
 
                     if (exp > 0) {
                         //백분율로 나누기
-                        result_lv = exp / 100;
+                        result_lv = exp / 100 + 1;
                         result_exp = exp % 100;
                     } else {
                         result_lv = 1;
