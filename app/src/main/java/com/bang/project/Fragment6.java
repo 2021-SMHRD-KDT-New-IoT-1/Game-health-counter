@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 // 마이페이지
@@ -17,8 +19,8 @@ public class Fragment6 extends Fragment {
 
     TextView tv_modify;
     TextView tv_logout;
-
-
+    Switch push;
+    Intent intent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,6 +29,7 @@ public class Fragment6 extends Fragment {
 
         tv_modify = v.findViewById(R.id.push_tcnt);
         tv_logout = v.findViewById(R.id.tv_logout);
+        push = v.findViewById(R.id.switch1);
 
         // SharedPreferences 초기화
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
@@ -60,10 +63,21 @@ public class Fragment6 extends Fragment {
             }
         });
 
+        // 푸쉬알림
+        push.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-
-
-
+                intent = new Intent(getContext(), MyService.class);
+                if (isChecked){
+                    getContext().startService(intent);
+                }else{
+                    getContext().stopService(intent);
+                }
+                SharedPreferences.Editor edit = spf.edit();
+                edit.putBoolean("push",isChecked).commit();
+            }
+        });
 
         return v;
     }
