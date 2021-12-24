@@ -160,6 +160,7 @@ public class character extends AppCompatActivity {
 
         });
 
+        bnView.setSelectedItemId(R.id.tab5);
 
         // 아이템 선택시 반응하는 리스너
         bnView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
