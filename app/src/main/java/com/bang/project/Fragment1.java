@@ -2,6 +2,7 @@ package com.bang.project;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,6 +53,8 @@ public class Fragment1 extends Fragment {
 
     Switch mode_switch;
 
+    ImageView imageView1;
+    ImageView imageView2;
     ImageView imageView3;
 
 
@@ -121,6 +124,8 @@ public class Fragment1 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_1, container, false);
 
         // 운동 이미지들
+        imageView2 = v.findViewById(R.id.imageView2);
+        imageView1 = v.findViewById(R.id.imageView);
         imageView3 = v.findViewById(R.id.imageView3);
 
         // 1. 통로생성
@@ -165,7 +170,9 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("타임 어택 모드");
-//                    imageView3.setImageResource(R.drawable.c2);
+                    imageView2.setImageResource(R.drawable.pushup_time1);
+                    imageView1.setImageResource(R.drawable.squat_time1);
+                    imageView3.setImageResource(R.drawable.pullup_time1);
 
                     server(date_result, url_athle_time);
                     // 타임어택 모드 캘린더(캘린더 눌렀을때만 작동함)
@@ -175,7 +182,9 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("일반 모드");
-//                    imageView3.setImageResource(R.drawable.c);
+                    imageView2.setImageResource(R.drawable.pushup);
+                    imageView1.setImageResource(R.drawable.squat);
+                    imageView3.setImageResource(R.drawable.pullup);
 
                     server(date_result, url_athle);
                     // 일반운동 모드 캘린더(캘린더 눌렀을때만 작동함)
