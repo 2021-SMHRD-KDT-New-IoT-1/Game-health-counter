@@ -75,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:layout_marginTop="72dp"
+        android:checked="true"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/pushYN"
         app:layout_constraintTop_toTopOf="parent" />

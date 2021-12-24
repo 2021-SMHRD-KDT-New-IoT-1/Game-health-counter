@@ -44,7 +44,7 @@ public class ServiceThread extends Thread{
         //반복적으로 수행할 작업을 한다.
         while(isRun){
             try{
-                Thread.sleep(10000*6); //3시간에 한번씩 알람온다.
+                Thread.sleep(10000); //3시간에 한번씩 알람온다.
             }catch (Exception e) {}
 
             //requestQueue = Volley.newRequestQueue(context);

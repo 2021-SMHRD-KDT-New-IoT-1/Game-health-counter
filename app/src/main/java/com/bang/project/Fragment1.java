@@ -165,7 +165,7 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("타임 어택 모드");
-                    imageView3.setImageResource(R.drawable.c2);
+//                    imageView3.setImageResource(R.drawable.c2);
 
                     server(date_result, url_athle_time);
                     // 타임어택 모드 캘린더(캘린더 눌렀을때만 작동함)
@@ -175,7 +175,7 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("일반 모드");
-                    imageView3.setImageResource(R.drawable.c);
+//                    imageView3.setImageResource(R.drawable.c);
 
                     server(date_result, url_athle);
                     // 일반운동 모드 캘린더(캘린더 눌렀을때만 작동함)
