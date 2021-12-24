@@ -37,11 +37,9 @@ public class Fragment2 extends Fragment {
     private ArrayList<QuestVO> data = new ArrayList<>();
     JSONArray jsonArray;
 
-
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_questList;
     String url_questList;
-
 
 
     @Override
