@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 
 import com.android.volley.AuthFailureError;
@@ -47,6 +49,9 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_2, container, false);
         listview = v.findViewById(R.id.listview);
+
+        Animation list_up = AnimationUtils.loadAnimation(getContext(),R.anim.list_up);
+        listview.startAnimation(list_up);
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
