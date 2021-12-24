@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DFEAFF"
+    android:background="@drawable/real_background3"
     tools:context=".Fragment6">
 
     <View
@@ -64,6 +64,7 @@
         android:layout_marginTop="72dp"
         android:text="푸쉬 알림"
         android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +89,7 @@
         android:layout_marginTop="20dp"
         android:text="로그아웃"
         android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +103,7 @@
         android:layout_marginTop="20dp"
         android:text="회원정보수정"
         android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,6 +116,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="20dp"
         android:text="문의하기"
+        android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,6 +129,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="20dp"
         android:text="공지사항"
+        android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
