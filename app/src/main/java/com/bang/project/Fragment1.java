@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 // 기록 탭
@@ -151,7 +152,6 @@ public class Fragment1 extends Fragment {
 
         // 최초로 캘린더 클릭시 실행되어야함
         calendar(url_athle);
-
 
 
 
