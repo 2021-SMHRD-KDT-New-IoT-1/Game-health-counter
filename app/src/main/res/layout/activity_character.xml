@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF"
+    android:background="#ffffff"
     tools:context=".login">
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="25dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="92dp"
+        android:layout_width="15dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="120dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486"
+        app:layout_constraintVertical_bias="0.547"
         app:srcCompat="@drawable/logo1" />
 
     <TextView
         android:id="@+id/tv_nick"
         android:layout_width="98dp"
-        android:layout_height="20dp"
+        android:layout_height="17dp"
         android:text="Bang123456"
         android:textAlignment="textStart"
         android:textSize="15sp"
@@ -31,7 +31,7 @@
     <TextView
         android:id="@+id/tv_level"
         android:layout_width="44dp"
-        android:layout_height="20dp"
+        android:layout_height="17dp"
         android:layout_marginStart="4dp"
         android:text="Lv 10"
         android:textSize="15sp"
@@ -41,14 +41,15 @@
     <ProgressBar
         android:id="@+id/bar_exp"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="91dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="83dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="1dp"
         android:max="100"
         android:progress="0"
         android:scaleY="3"
         app:layout_constraintStart_toEndOf="@+id/tv_nick"
         app:layout_constraintTop_toTopOf="@+id/tv_nick" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -96,24 +97,25 @@
     <ImageButton
         android:id="@+id/mypage"
         android:layout_width="28dp"
-        android:layout_height="20dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="3dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/bar_exp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487"
+        app:layout_constraintVertical_bias="0.547"
         app:srcCompat="@drawable/ic_baseline_settings_24" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="54dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="96dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_alpha" />
+        app:srcCompat="@drawable/main_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
