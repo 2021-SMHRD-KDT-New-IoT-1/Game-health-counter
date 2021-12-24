@@ -93,7 +93,6 @@ public class character extends AppCompatActivity {
 
         bar_exp = findViewById(R.id.bar_exp);
 
-
         // 메인화면 프레그먼트 셋팅(캐릭터로)
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.layout, new Fragment5()).commit();
