@@ -87,7 +87,7 @@
         android:id="@+id/layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/real_background"
+        android:background="@drawable/real_background3"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
