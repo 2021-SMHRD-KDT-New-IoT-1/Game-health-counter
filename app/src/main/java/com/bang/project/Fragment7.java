@@ -71,12 +71,12 @@ public class Fragment7 extends Fragment {
         s_char = v.findViewById(R.id.main_char);
         stat = v.findViewById(R.id.stat);
 
-        pull_cnt = v.findViewById(R.id.pull_cnt);
-        squart_cnt = v.findViewById(R.id.squart_cnt);
-        pull_cnt = v.findViewById(R.id.pull_cnt);
-        push_tcnt = v.findViewById(R.id.push_tcnt);
-        squart_tcnt = v.findViewById(R.id.squart_tcnt);
-        pull_tcnt = v.findViewById(R.id.pull_tcnt);
+//        pull_cnt = v.findViewById(R.id.pull_cnt);
+//        squart_cnt = v.findViewById(R.id.squart_cnt);
+//        pull_cnt = v.findViewById(R.id.pull_cnt);
+//        push_tcnt = v.findViewById(R.id.push_tcnt);
+//        squart_tcnt = v.findViewById(R.id.squart_tcnt);
+//        pull_tcnt = v.findViewById(R.id.pull_tcnt);
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
         req_user = spf.getString("user", "unknown");
