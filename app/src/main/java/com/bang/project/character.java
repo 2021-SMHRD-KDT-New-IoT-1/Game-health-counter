@@ -85,14 +85,13 @@ public class character extends AppCompatActivity {
         bnView = findViewById(R.id.bnView);
 
         // 이미지 버튼(홈으로 이동)
-        btn_home = findViewById(R.id.btn_home);
+   //     btn_home = findViewById(R.id.btn_home);
         mypage = findViewById(R.id.mypage);
 
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
 
         bar_exp = findViewById(R.id.bar_exp);
-
 
         // 메인화면 프레그먼트 셋팅(캐릭터로)
         getSupportFragmentManager().beginTransaction()
@@ -139,15 +138,15 @@ public class character extends AppCompatActivity {
 
 
         // 홈 버튼 리스너
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.layout, new Fragment5()).commit();
-                bnView.setSelectedItemId(R.id.invisible);
-            }
-
-        });
+//        btn_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.layout, new Fragment5()).commit();
+//                bnView.setSelectedItemId(R.id.invisible);
+//            }
+//
+//        });
 
 
         // 마이페이지 클릭리스너
@@ -160,6 +159,7 @@ public class character extends AppCompatActivity {
 
         });
 
+        bnView.setSelectedItemId(R.id.tab5);
 
         // 아이템 선택시 반응하는 리스너
         bnView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -178,6 +178,9 @@ public class character extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.tab4) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.layout, new Fragment4()).commit();
+                }else if (item.getItemId() == R.id.tab5) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.layout, new Fragment5()).commit();
                 }
 
                 return true;
@@ -200,7 +203,7 @@ public class character extends AppCompatActivity {
 
                     if (exp > 0) {
                         //백분율로 나누기
-                        result_lv = exp / 100;
+                        result_lv = exp / 100 + 1;
                         result_exp = exp % 100;
                     } else {
                         result_lv = 1;

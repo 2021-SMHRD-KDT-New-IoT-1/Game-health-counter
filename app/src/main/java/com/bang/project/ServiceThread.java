@@ -1,6 +1,7 @@
 package com.bang.project;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ public class ServiceThread extends Thread{
     StringRequest stringRequest;
     int msg = 0;
 
+//    boolean ischecked;
+
     public ServiceThread(Handler handler, Context context){
         this.context = context;
         this.handler = handler;
@@ -44,7 +47,7 @@ public class ServiceThread extends Thread{
         //반복적으로 수행할 작업을 한다.
         while(isRun){
             try{
-                Thread.sleep(10000); //3시간에 한번씩 알람온다.
+                Thread.sleep(1000*60*60*3); //3시간에 한번씩 알람온다.
             }catch (Exception e) {}
 
             //requestQueue = Volley.newRequestQueue(context);

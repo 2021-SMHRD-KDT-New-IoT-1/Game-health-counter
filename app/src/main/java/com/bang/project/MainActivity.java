@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         fadeOut.setInterpolator(new AccelerateInterpolator());
         fadeOut.setStartOffset(1500);
 
-        image = findViewById(R.id.imageView);
+        image = findViewById(R.id.imageView11);
 
         image.setAnimation(fadeOut);
 

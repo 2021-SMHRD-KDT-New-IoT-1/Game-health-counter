@@ -5,14 +5,26 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF"
     tools:context=".Fragment1">
 
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#26000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="385dp"
         android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:theme="@android:style/Theme.Material"
+        android:selectedWeekBackgroundColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +36,7 @@
         android:layout_marginTop="10dp"
         android:text="일반 모드"
         android:textAlignment="textEnd"
+        android:textColor="#C6C6C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -41,14 +54,16 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/rank_radius2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/b" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pushup" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -56,74 +71,101 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="푸쉬업"
+                android:textColor="#BDBDBD"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_push"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0회" />
+                android:text="0회"
+                android:textAlignment="textEnd"
+                android:textColor="#C6C6C6" />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rank_radius2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/a" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/squat" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="52dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="스쿼트"
+                android:textColor="#BDBDBD"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_squart"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0회" />
+                android:text="0회"
+                android:textAlignment="textEnd"
+                android:textColor="#C6C6C6" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rank_radius2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/c" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pullup" />
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="풀업"
+                android:textColor="#BDBDBD"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_pull"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="0회" />
+                android:text="0회"
+                android:textAlignment="textEnd"
+                android:textColor="#C6C6C6" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="390dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rank_radius2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

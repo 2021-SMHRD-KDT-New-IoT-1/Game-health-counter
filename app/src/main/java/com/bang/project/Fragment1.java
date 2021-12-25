@@ -1,14 +1,9 @@
 package com.bang.project;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +13,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 // 기록 탭
@@ -54,6 +53,8 @@ public class Fragment1 extends Fragment {
 
     Switch mode_switch;
 
+    ImageView imageView1;
+    ImageView imageView2;
     ImageView imageView3;
 
 
@@ -96,8 +97,11 @@ public class Fragment1 extends Fragment {
         requestQueue.add(stringRequest_Athle);
     };
 
+
+
     // 캘린더 메서드
     public void calendar(String url) {
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -108,6 +112,8 @@ public class Fragment1 extends Fragment {
                 server(date_result, url);
             }
         });
+
+
     }
 
 
@@ -118,6 +124,8 @@ public class Fragment1 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_1, container, false);
 
         // 운동 이미지들
+        imageView2 = v.findViewById(R.id.imageView2);
+        imageView1 = v.findViewById(R.id.imageView);
         imageView3 = v.findViewById(R.id.imageView3);
 
         // 1. 통로생성
@@ -143,11 +151,12 @@ public class Fragment1 extends Fragment {
         server(date, url_athle);
         date_result = date;
 
+
+
         calendarView = v.findViewById(R.id.calendarView);
 
         // 최초로 캘린더 클릭시 실행되어야함
         calendar(url_athle);
-
 
 
 
@@ -161,7 +170,9 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 켜졋음ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("타임 어택 모드");
-                    imageView3.setImageResource(R.drawable.c2);
+                    imageView2.setImageResource(R.drawable.pushup_time1);
+                    imageView1.setImageResource(R.drawable.squat_time1);
+                    imageView3.setImageResource(R.drawable.pullup_time1);
 
                     server(date_result, url_athle_time);
                     // 타임어택 모드 캘린더(캘린더 눌렀을때만 작동함)
@@ -171,7 +182,9 @@ public class Fragment1 extends Fragment {
 //                    Toast.makeText(getActivity(), "스위치 꺼졋음요ㅋㅋ", Toast.LENGTH_SHORT).show();
 
                     mode_switch.setText("일반 모드");
-                    imageView3.setImageResource(R.drawable.c);
+                    imageView2.setImageResource(R.drawable.pushup);
+                    imageView1.setImageResource(R.drawable.squat);
+                    imageView3.setImageResource(R.drawable.pullup);
 
                     server(date_result, url_athle);
                     // 일반운동 모드 캘린더(캘린더 눌렀을때만 작동함)

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -21,9 +20,7 @@ public class Fragment6 extends Fragment {
     TextView tv_modify;
     TextView tv_logout;
     Switch push;
-
     Intent intent;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,15 +29,11 @@ public class Fragment6 extends Fragment {
 
         tv_modify = v.findViewById(R.id.push_tcnt);
         tv_logout = v.findViewById(R.id.tv_logout);
-        push = v.findViewById(R.id.checkBox);
-
-
-
+        push = v.findViewById(R.id.switch1);
 
         // SharedPreferences 초기화
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
-        push.setChecked(spf.getBoolean("push",true));
         // 회원정보수정 클릭 리스너
         tv_modify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,24 +68,18 @@ public class Fragment6 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                intent = new Intent(getContext(), MyService.class);
                 if (isChecked){
-                    intent = new Intent(getContext(), MyService.class);
                     getContext().startService(intent);
-                }else{
+                }
+                else if(!isChecked){
                     getContext().stopService(intent);
                 }
-                SharedPreferences.Editor edit = spf.edit();
-                edit.putBoolean("push",isChecked).commit();
+
+//                SharedPreferences.Editor edit = spf.edit();
+//                edit.putBoolean("push",isChecked).commit();
             }
         });
-
-
-//        Intent intent = new Intent(MainActivity.this, MyService.class);
-//        stopService(intent);
-
-
-
-
 
         return v;
     }
