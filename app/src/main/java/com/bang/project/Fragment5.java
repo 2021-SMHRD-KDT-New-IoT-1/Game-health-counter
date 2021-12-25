@@ -58,6 +58,8 @@ public class Fragment5 extends Fragment {
     TextView squart_tcnt;
     TextView pull_tcnt;
 
+    int user_level;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,6 +78,22 @@ public class Fragment5 extends Fragment {
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
         req_user = spf.getString("user", "unknown");
+
+        user_level = spf.getInt("level", 0);
+
+        // 테스트용 레벨
+//        user_level = 5;
+
+        if(user_level >= 10) {
+            main_char.setImageResource(R.drawable.char3_1);
+        }
+        else if(user_level >= 5) {
+            main_char.setImageResource(R.drawable.char2_1);
+        }
+        else if(user_level >= 1) {
+            main_char.setImageResource(R.drawable.char1_1);
+        }
+
 
         // 1. 통로생성
         requestQueue = Volley.newRequestQueue(getActivity());

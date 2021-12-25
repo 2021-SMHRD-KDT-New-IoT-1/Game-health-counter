@@ -113,7 +113,6 @@ public class character extends AppCompatActivity {
                 // SharedPreferences 에디터 열어서 닉값 put해주기
                 SharedPreferences.Editor edit = spf.edit();
                 edit.putString("nick", response);
-//                    Toast.makeText(getApplicationContext(), result_nick, Toast.LENGTH_SHORT).show();
                 edit.commit();
 
             }
@@ -135,6 +134,19 @@ public class character extends AppCompatActivity {
         };
         requestQueue.add(stringRequest_CharInfo);
         // 끝 ***
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // 홈 버튼 리스너
@@ -213,6 +225,12 @@ public class character extends AppCompatActivity {
                     // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv " + result_lv);
+
+                    SharedPreferences.Editor edit = spf.edit();
+                    edit.putInt("level", result_lv);
+                    edit.commit();
+
+
 
                 }
             }

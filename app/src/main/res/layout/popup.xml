@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_cnt"
+        android:id="@+id/tv_cnt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_date2" />
 
     <Button
         android:id="@+id/btn_commit"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/tv_date2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -78,20 +78,20 @@
         android:layout_marginTop="24dp"
         android:text="총 진행 상황"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_date2" />
 
     <TextView
-        android:id="@+id/tv_allScore"
+        android:id="@+id/tv_allScore2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_date2" />
 
     <ProgressBar
-        android:id="@+id/bar_stat"
+        android:id="@+id/bar_stat2"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="151dp"
         android:layout_height="13dp"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bar_stat" />
+        app:layout_constraintTop_toBottomOf="@+id/bar_stat2" />
 
     <TextView
         android:id="@+id/textView19"
@@ -136,14 +136,14 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <TextView
-        android:id="@+id/tv_score"
+        android:id="@+id/tv_score2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="28dp"
         android:text="내 기여횟수 : "
         app:layout_constraintBottom_toTopOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="@+id/bar_stat"
-        app:layout_constraintTop_toBottomOf="@+id/bar_stat" />
+        app:layout_constraintStart_toStartOf="@+id/bar_stat2"
+        app:layout_constraintTop_toBottomOf="@+id/bar_stat2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
