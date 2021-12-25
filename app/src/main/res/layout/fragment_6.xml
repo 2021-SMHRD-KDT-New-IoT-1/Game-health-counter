@@ -21,11 +21,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginTop="100dp"
+        android:checked="true"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/pushYN"
         app:layout_constraintTop_toTopOf="parent" />

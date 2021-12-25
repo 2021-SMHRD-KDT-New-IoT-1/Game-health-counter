@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(MainActivity.this, MyService.class);
-        startService(intent);
+// 마이페이지 푸쉬설정으로 옮김.
+//        Intent intent = new Intent(MainActivity.this, MyService.class);
+//        startService(intent);
 
         setContentView(R.layout.activity_main);
 
