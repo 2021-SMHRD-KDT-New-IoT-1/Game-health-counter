@@ -6,10 +6,13 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,7 +95,7 @@ public class Fragment3 extends Fragment {
 
     // 값 세팅 메서드
     public void valueSet(int mS) {
-            
+
         // 레이아웃 테두리 넣기 (보류)
 //        if(myScore.equals("0")) {
 //            constaintLayout_pull.setBackgroundResource(R.drawable.white_edittext);
@@ -159,6 +162,7 @@ public class Fragment3 extends Fragment {
         iv_boss3 = v.findViewById(R.id.iv_boss3);
 
         tv_raid1 = v.findViewById(R.id.tv_raid1);
+
 
         // 임시로 태그 설정 해놈(Null 방지)
         tag = "12";
@@ -599,6 +603,11 @@ public class Fragment3 extends Fragment {
 //            }
 //        });
 
+        UpdateThread updateThread = new UpdateThread();
+        updateThread.start();
+
+
+
         return v;
     }//onCreateView 중괄호
 
@@ -616,4 +625,45 @@ public class Fragment3 extends Fragment {
         }
     }
 
+    //DB새로고침 스레드
+    Handler handelr = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            // Thread에서 해당 handler한테 Message 보내면
+            // 그거 처리하는 곳!
+            // 그래서 Message가 매개변수다.
+            // 여기는 MainThread 관할 구역이다.
+            // 여기서는 UI업데이트가 가능하다.
+            mS = msg.arg1;
+            aS = msg.arg2;
+
+            tv_score.setText("기여도  "+mS+" / "+aS);
+            tv_cnt.setText(aS+"/"+tC);
+            Toast.makeText(getContext(), "as:"+aS, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    public class UpdateThread extends Thread {
+        // 지금부터 extends Thread 했기 때문에 지금부터 얘는 Thread!
+        private int start; //해당 Thread가 몇 초부터 시작할 건지 전달받을 거임~!
+
+        public UpdateThread() {
+
+        }
+        @Override
+        public void run() {
+            while(true) {
+                requestQueue_info.add(stringRequest_info);
+                Message msg = new Message();
+                msg.arg1 = mS;
+                msg.arg2 = aS;
+                handelr.sendMessage(msg);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }//끝 중괄호
