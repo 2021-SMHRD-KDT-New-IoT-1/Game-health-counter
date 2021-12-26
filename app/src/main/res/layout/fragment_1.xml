@@ -77,7 +77,7 @@
 
             <TextView
                 android:id="@+id/tv_push"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0회"
@@ -112,7 +112,7 @@
 
             <TextView
                 android:id="@+id/tv_squart"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0회"
@@ -146,7 +146,7 @@
 
             <TextView
                 android:id="@+id/tv_pull"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0회"
