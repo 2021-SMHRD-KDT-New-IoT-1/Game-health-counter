@@ -22,9 +22,9 @@
         android:id="@+id/calendarView"
         android:layout_width="385dp"
         android:layout_height="300dp"
-        android:layout_marginTop="10dp"
-        android:theme="@android:style/Theme.Material"
+        android:layout_marginTop="50dp"
         android:selectedWeekBackgroundColor="#00000000"
+        android:theme="@android:style/Theme.Material"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
         android:id="@+id/mode_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="일반 모드"
         android:textAlignment="textEnd"
         android:textColor="#C6C6C6"
@@ -71,19 +71,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="푸쉬업"
-                android:textColor="#BDBDBD"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_push"
-                android:layout_width="100dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="30dp"
-                android:text="0회"
+                android:text="999회"
                 android:textAlignment="textEnd"
-                android:textColor="#C6C6C6" />
+                android:textColor="#FFFFFF" />
 
         </TableRow>
 
@@ -107,19 +107,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="스쿼트"
-                android:textColor="#BDBDBD"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_squart"
-                android:layout_width="100dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="30dp"
-                android:text="0회"
+                android:text="999회"
                 android:textAlignment="textEnd"
-                android:textColor="#C6C6C6" />
+                android:textColor="#FFFFFF" />
         </TableRow>
 
         <TableRow
@@ -142,19 +142,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="풀업"
-                android:textColor="#BDBDBD"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_pull"
-                android:layout_width="100dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="30dp"
-                android:text="0회"
+                android:text="999회"
                 android:textAlignment="textEnd"
-                android:textColor="#C6C6C6" />
+                android:textColor="#FFFFFF" />
         </TableRow>
 
     </TableLayout>
@@ -162,11 +162,10 @@
     <TextView
         android:id="@+id/textView18"
         android:layout_width="390dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/rank_radius2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

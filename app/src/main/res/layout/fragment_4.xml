@@ -33,7 +33,7 @@
     <ListView
         android:id="@+id/r_listview"
         android:layout_width="333dp"
-        android:layout_height="310dp"
+        android:layout_height="390dp"
         android:layout_marginTop="40dp"
         android:dividerHeight="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
 
         <TextView
             android:id="@+id/co2"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Lv9"
@@ -86,10 +86,11 @@
 
         <TextView
             android:id="@+id/r_exp2"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="100"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </TableRow>

@@ -47,9 +47,10 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:text="누적횟수"
-                android:textColor="#DCDCDC"
-                android:textSize="24sp"
+                android:textColor="@color/text"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -62,15 +63,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="푸쉬업"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/push_cnt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -82,15 +84,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="스쿼트"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/squart_cnt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -102,30 +105,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="풀업"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/pull_cnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="2dp">
 
             <TextView
                 android:id="@+id/textView35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:text="타임어택"
-                android:textColor="#DCDCDC"
-                android:textSize="24sp"
+                android:textColor="@color/text"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -138,15 +144,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="푸쉬업"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/push_tcnt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -158,15 +165,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="스쿼트"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/squart_tcnt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -178,15 +186,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="풀업"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/pull_tcnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#DCDCDC"
-                android:textSize="18sp" />
+                android:paddingLeft="14dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
