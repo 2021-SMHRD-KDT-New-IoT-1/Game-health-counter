@@ -79,7 +79,8 @@
                 android:id="@+id/tv_push"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
                 android:text="0회"
                 android:textAlignment="textEnd"
                 android:textColor="#C6C6C6" />
@@ -114,7 +115,8 @@
                 android:id="@+id/tv_squart"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
                 android:text="0회"
                 android:textAlignment="textEnd"
                 android:textColor="#C6C6C6" />
@@ -148,7 +150,8 @@
                 android:id="@+id/tv_pull"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
                 android:text="0회"
                 android:textAlignment="textEnd"
                 android:textColor="#C6C6C6" />
