@@ -7,8 +7,18 @@
     android:background="#FFFFFF"
     tools:context=".login">
 
+    <TextView
+        android:id="@+id/textView99"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/main_logo"
         android:layout_width="15dp"
         android:layout_height="17dp"
         android:layout_marginStart="128dp"
@@ -16,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.547"
-        app:srcCompat="@drawable/logo1" />
+        app:srcCompat="@drawable/logo1_alpha" />
 
     <TextView
         android:id="@+id/tv_nick"
@@ -36,8 +46,8 @@
         android:background="#FFFFFF"
         android:text="Lv 10"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintStart_toEndOf="@+id/main_logo"
+        app:layout_constraintTop_toTopOf="@+id/main_logo" />
 
 
     <ProgressBar
@@ -87,7 +97,7 @@
         android:id="@+id/layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/real_background3"
+        android:background="@drawable/real_background2"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

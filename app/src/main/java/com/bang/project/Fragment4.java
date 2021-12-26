@@ -11,9 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -34,7 +34,7 @@ import java.util.Map;
 // 랭킹 탭
 public class Fragment4 extends Fragment {
     private ListView r_listview;
-
+    private ImageView rank_my_logo;
     private ArrayList<RankVO> r_data = new ArrayList<>();
 
     JSONArray jsonArray;
@@ -53,12 +53,16 @@ public class Fragment4 extends Fragment {
     String nick;
     String exp;
 
+    int user_level;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.fragment_4, container, false);
         r_listview = v.findViewById(R.id.r_listview);
+
+        rank_my_logo = v.findViewById(R.id.rank_my_logo);
 
         co2 = v.findViewById(R.id.co2);
         r_nick2 = v.findViewById(R.id.r_nick2);
@@ -67,12 +71,21 @@ public class Fragment4 extends Fragment {
 
         SharedPreferences spf = getActivity().getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
 
+        user_level = spf.getInt("level", 0);
 //        lv = spf.getString("result_lv", "1");
         nick = spf.getString("nick", "unknown");
 //        Toast.makeText(getActivity(), nick, Toast.LENGTH_SHORT).show();
 //        exp = spf.getString("result_exp", "0");
 
-
+        if(user_level >= 10) {
+            rank_my_logo.setImageResource(R.drawable.logo3_alpha);
+        }
+        else if(user_level >= 5) {
+            rank_my_logo.setImageResource(R.drawable.logo2_alpha);
+        }
+        else if(user_level >= 1) {
+            rank_my_logo.setImageResource(R.drawable.logo1_alpha);
+        }
 
 
         // 1. 통로생성

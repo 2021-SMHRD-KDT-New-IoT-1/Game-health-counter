@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class character extends AppCompatActivity {
+    private ImageView main_logo;
 
     FrameLayout frameLayout;
     BottomNavigationView bnView;
@@ -46,6 +47,8 @@ public class character extends AppCompatActivity {
     TextView tv_level;
     ProgressBar bar_exp;
     ImageView main_char;
+
+    int user_level;
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
@@ -77,8 +80,7 @@ public class character extends AppCompatActivity {
 //            }
 //        });
 
-        // SharedPreferences
-        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
+
 
         // fragment 사용시 필요한 레이아웃, 버튼뷰
         frameLayout = findViewById(R.id.layout);
@@ -88,10 +90,25 @@ public class character extends AppCompatActivity {
    //     btn_home = findViewById(R.id.btn_home);
         mypage = findViewById(R.id.mypage);
 
+        main_logo = findViewById(R.id.main_logo);
         tv_nick = findViewById(R.id.tv_nick);
         tv_level = findViewById(R.id.tv_level);
 
         bar_exp = findViewById(R.id.bar_exp);
+
+        // SharedPreferences
+        SharedPreferences spf = getSharedPreferences("UserSPF", Context.MODE_PRIVATE);
+        user_level = spf.getInt("level", 0);
+
+        if(user_level >= 10) {
+            main_logo.setImageResource(R.drawable.logo3_alpha);
+        }
+        else if(user_level >= 5) {
+            main_logo.setImageResource(R.drawable.logo2_alpha);
+        }
+        else if(user_level >= 1) {
+            main_logo.setImageResource(R.drawable.logo1_alpha);
+        }
 
         // 메인화면 프레그먼트 셋팅(캐릭터로)
         getSupportFragmentManager().beginTransaction()
@@ -113,7 +130,6 @@ public class character extends AppCompatActivity {
                 // SharedPreferences 에디터 열어서 닉값 put해주기
                 SharedPreferences.Editor edit = spf.edit();
                 edit.putString("nick", response);
-//                    Toast.makeText(getApplicationContext(), result_nick, Toast.LENGTH_SHORT).show();
                 edit.commit();
 
             }
@@ -135,6 +151,19 @@ public class character extends AppCompatActivity {
         };
         requestQueue.add(stringRequest_CharInfo);
         // 끝 ***
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // 홈 버튼 리스너
@@ -213,6 +242,12 @@ public class character extends AppCompatActivity {
                     // 퍼센트(백분율)로 들어감
                     bar_exp.setProgress(result_exp);
                     tv_level.setText("Lv " + result_lv);
+
+                    SharedPreferences.Editor edit = spf.edit();
+                    edit.putInt("level", result_lv);
+                    edit.commit();
+
+
 
                 }
             }

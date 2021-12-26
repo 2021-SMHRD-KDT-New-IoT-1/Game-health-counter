@@ -33,7 +33,7 @@
     <ListView
         android:id="@+id/r_listview"
         android:layout_width="333dp"
-        android:layout_height="310dp"
+        android:layout_height="390dp"
         android:layout_marginTop="40dp"
         android:dividerHeight="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,23 +54,24 @@
             android:id="@+id/r_num2"
             android:layout_width="47dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/rank_my_logo"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginLeft="20dp"
-            app:srcCompat="@android:drawable/ic_menu_myplaces" />
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/logo1_alpha" />
 
         <TextView
             android:id="@+id/co2"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="8dp"
             android:text="Lv9"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -79,17 +80,18 @@
             android:id="@+id/r_nick2"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="8dp"
             android:text="bang9"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/r_exp2"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="3dp"
             android:text="100"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </TableRow>
