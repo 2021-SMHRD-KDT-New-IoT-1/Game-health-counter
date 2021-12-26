@@ -23,14 +23,14 @@
         app:layout_constraintTop_toTopOf="@+id/pull_cnt" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/rank_my_logo"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/r_num"
         app:layout_constraintStart_toEndOf="@+id/r_num"
         app:layout_constraintTop_toTopOf="@+id/r_num"
-        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+        app:srcCompat="@drawable/logo1_alpha" />
 
     <TextView
         android:id="@+id/r_num"
@@ -55,9 +55,9 @@
         android:text="Lv10"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        app:layout_constraintBottom_toBottomOf="@+id/rank_my_logo"
+        app:layout_constraintStart_toEndOf="@+id/rank_my_logo"
+        app:layout_constraintTop_toTopOf="@+id/rank_my_logo" />
 
     <TextView
         android:id="@+id/pull_cnt"

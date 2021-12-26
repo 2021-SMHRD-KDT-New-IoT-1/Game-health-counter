@@ -61,11 +61,11 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/rank_my_logo"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@android:drawable/ic_menu_myplaces" />
+            app:srcCompat="@drawable/logo1_alpha" />
 
         <TextView
             android:id="@+id/co2"
