@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -16,6 +17,7 @@ public class RankAdapter extends BaseAdapter{
     private Context context;
     private int layout;
     private ArrayList<RankVO> r_data;
+    private ImageView rank_logo;
 
     public RankAdapter(Context context, int layout, ArrayList<RankVO> r_data) {
         this.context = context;
@@ -52,7 +54,20 @@ public class RankAdapter extends BaseAdapter{
         TextView r_exp = convertView.findViewById(R.id.r_exp);
         TextView r_num = convertView.findViewById(R.id.r_num);
 
+        rank_logo= convertView.findViewById(R.id.rank_logo);
 //        r_logo.setImageResource(r_data.get(position).getR_logo());
+
+        int user_level = r_data.get(position).getC_level();
+
+        if(user_level >= 10) {
+            rank_logo.setImageResource(R.drawable.logo3_alpha);
+        }
+        else if(user_level >= 5) {
+            rank_logo.setImageResource(R.drawable.logo2_alpha);
+        }
+        else if(user_level >= 1) {
+            rank_logo.setImageResource(R.drawable.logo1_alpha);
+        }
 
         int rownum = r_data.get(position).getRowNum();
         r_num.setText(rownum+"");

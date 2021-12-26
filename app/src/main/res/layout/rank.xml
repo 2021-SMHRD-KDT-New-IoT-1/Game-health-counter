@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="@+id/pull_cnt" />
 
     <ImageView
-        android:id="@+id/rank_my_logo"
+        android:id="@+id/rank_logo"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="12dp"
@@ -55,9 +55,9 @@
         android:text="Lv10"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rank_my_logo"
-        app:layout_constraintStart_toEndOf="@+id/rank_my_logo"
-        app:layout_constraintTop_toTopOf="@+id/rank_my_logo" />
+        app:layout_constraintBottom_toBottomOf="@+id/rank_logo"
+        app:layout_constraintStart_toEndOf="@+id/rank_logo"
+        app:layout_constraintTop_toTopOf="@+id/rank_logo" />
 
     <TextView
         android:id="@+id/pull_cnt"
