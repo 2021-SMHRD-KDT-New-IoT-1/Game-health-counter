@@ -711,7 +711,7 @@ public class Fragment3 extends Fragment {
                 msg.arg2 = aS;
                 handelr.sendMessage(msg);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(1000*60*60);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
