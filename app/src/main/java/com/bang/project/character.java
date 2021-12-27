@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -49,6 +51,8 @@ public class character extends AppCompatActivity {
     ImageView main_char;
 
     int user_level;
+
+    int preSelect=3;
 
     RequestQueue requestQueue; // 전송통로
     StringRequest stringRequest_CharInfo;
@@ -195,21 +199,109 @@ public class character extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if (item.getItemId() == R.id.tab1) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.layout, new Fragment1()).commit();
-                } else if (item.getItemId() == R.id.tab2) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.layout, new Fragment2()).commit();
-                } else if (item.getItemId() == R.id.tab3) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.layout, new Fragment3()).commit();
-                } else if (item.getItemId() == R.id.tab4) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.layout, new Fragment4()).commit();
-                }else if (item.getItemId() == R.id.tab5) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.layout, new Fragment5()).commit();
+                if(item.getItemId()==R.id.tab1){
+                    //1번 메뉴를 클릭했다면
+//                    getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit).commit();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+                    if (preSelect > 1){
+                        // 오른쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment1());
+                        fragmentTransaction.commit();
+
+                    }else{
+                        // 왼쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit, R.anim.slide_right_enter, R.anim.slide_right_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment1());
+                        fragmentTransaction.commit();
+                    }
+
+                    preSelect = 1;
+
+
+
+                } else if(item.getItemId()==R.id.tab2){
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (preSelect > 2){
+                        // 오른쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment2());
+                        fragmentTransaction.commit();
+
+                    }else{
+                        // 왼쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit, R.anim.slide_right_enter, R.anim.slide_right_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment2());
+                        fragmentTransaction.commit();
+                    }
+                    preSelect = 2;
+
+                }else if(item.getItemId()==R.id.tab3){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment3()).commit();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (preSelect > 4){
+                        // 오른쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment3());
+                        fragmentTransaction.commit();
+
+                    }else{
+                        // 왼쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit, R.anim.slide_right_enter, R.anim.slide_right_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment3());
+                        fragmentTransaction.commit();
+                    }
+                    preSelect = 3;
+
+                }else if(item.getItemId()==R.id.tab4){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment4()).commit();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (preSelect > 4){
+                        // 오른쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment4());
+                        fragmentTransaction.commit();
+
+                    }else{
+                        // 왼쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit, R.anim.slide_right_enter, R.anim.slide_right_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment4());
+                        fragmentTransaction.commit();
+                    }
+                    preSelect = 4;
+                }else if(item.getItemId()==R.id.tab5){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment4()).commit();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (preSelect > 3){
+                        // 오른쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment5());
+                        fragmentTransaction.commit();
+
+                    }else{
+                        // 왼쪽에서 왔음
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit, R.anim.slide_right_enter, R.anim.slide_right_exit);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.layout,new Fragment5());
+                        fragmentTransaction.commit();
+                    }
+                    preSelect = 5;
                 }
 
                 return true;
