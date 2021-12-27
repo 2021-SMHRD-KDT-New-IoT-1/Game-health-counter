@@ -262,13 +262,13 @@ public class character extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.layout,new Fragment3());
                         fragmentTransaction.commit();
                     }
-                    preSelect = 3;
+                    preSelect = 4;
 
                 }else if(item.getItemId()==R.id.tab4){
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment4()).commit();
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    if (preSelect > 4){
+                    if (preSelect > 5){
                         // 오른쪽에서 왔음
                         fragmentTransaction.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_left_enter, R.anim.slide_left_exit);
                         fragmentTransaction.addToBackStack(null);
@@ -282,7 +282,7 @@ public class character extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.layout,new Fragment4());
                         fragmentTransaction.commit();
                     }
-                    preSelect = 4;
+                    preSelect = 5;
                 }else if(item.getItemId()==R.id.tab5){
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Fragment4()).commit();
                     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -301,7 +301,7 @@ public class character extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.layout,new Fragment5());
                         fragmentTransaction.commit();
                     }
-                    preSelect = 5;
+                    preSelect = 3;
                 }
 
                 return true;
