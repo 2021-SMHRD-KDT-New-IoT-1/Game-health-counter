@@ -89,6 +89,8 @@ public class Fragment3 extends Fragment {
 
     TextView tv_raid1;
 
+    int barGauge;
+
     // 캘린더 날짜 포맷
     private Calendar cal = Calendar.getInstance();
     private DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
@@ -111,8 +113,8 @@ public class Fragment3 extends Fragment {
         totalCnt = raidAl.get(0).getRaid_cnt();
         tC = Integer.parseInt(totalCnt);
 
-        int barGauge = (int)((double)aS/tC*100);
-        Toast.makeText(getActivity(), barGauge+"", Toast.LENGTH_SHORT).show();
+        barGauge = (int)((double)aS/tC*100);
+//        Toast.makeText(getActivity(), barGauge+"", Toast.LENGTH_SHORT).show();
         // 임시 데이터
 //        barGauge = 50;
         bar_stat.setProgress(barGauge);
@@ -634,14 +636,59 @@ public class Fragment3 extends Fragment {
             // 그래서 Message가 매개변수다.
             // 여기는 MainThread 관할 구역이다.
             // 여기서는 UI업데이트가 가능하다.
+
             mS = msg.arg1;
             aS = msg.arg2;
+            int result_tmp = (Integer) msg.obj;
 
+//            cal.setTime(raidAl.get(0).getReg_date());
+//            String startDate = df.format(raidAl.get(0).getReg_date()).toString();
+//
+//            cal.add(Calendar.DATE, 3);
+//            String endDate = df.format(cal.getTime()).toString();
+//
+//            totalCnt = raidAl.get(0).getRaid_cnt();
+//            tC = Integer.parseInt(totalCnt);
+
+            barGauge = (int)((double)aS/tC*100);
+//        Toast.makeText(getActivity(), barGauge+"", Toast.LENGTH_SHORT).show();
+            // 임시 데이터
+//        barGauge = 50;
+            bar_stat.setProgress(barGauge);
+
+
+
+            // 이거 켜놓으면 Null때문에 튕김
+//            Toast.makeText(getContext(), "mS:"+mS+", result_tmp:"+result_tmp, Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(mS != result_tmp) {
+                        iv_boss1.setImageResource(R.drawable.boss1_1);
+                    }
+                }
+            }, 400);
+
+            if(barGauge<50) {
+                iv_boss1.setImageResource(R.drawable.boss1_1);
+                tv_raid1.setText("PULL UP");
+            }
+            else if(barGauge == 100) {
+                iv_boss1.setImageResource(R.drawable.boss1_die);
+                tv_raid1.setText("레이드 종료");
+            } else {
+                iv_boss1.setImageResource(R.drawable.boss1_2);
+                tv_raid1.setText("PULL UP");
+            }
+
+//            tv_date.setText(startDate + " ~ " + endDate);
             tv_score.setText("기여도  "+mS+" / "+aS);
             tv_cnt.setText(aS+"/"+tC);
-            Toast.makeText(getContext(), "as:"+aS, Toast.LENGTH_SHORT).show();
+
         }
     };
+
 
     public class UpdateThread extends Thread {
         // 지금부터 extends Thread 했기 때문에 지금부터 얘는 Thread!
@@ -653,17 +700,23 @@ public class Fragment3 extends Fragment {
         @Override
         public void run() {
             while(true) {
+                // 업데이트 되기 전에 값 저장
+                int tmp = mS;
+                Integer a = new Integer(tmp);
+
                 requestQueue_info.add(stringRequest_info);
                 Message msg = new Message();
+                msg.obj = a;
                 msg.arg1 = mS;
                 msg.arg2 = aS;
                 handelr.sendMessage(msg);
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000*60*60);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
+
 }//끝 중괄호
